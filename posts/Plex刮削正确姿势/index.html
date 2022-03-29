@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前言最近购置了一台 DS920+ ，配合以前购入的Plex永久订阅开始搭建家庭媒体服务器。 Plex自带的刮削器针对媒体文件命名有要求，而且刮削下来的meta信息参差不齐。 一番搜索发现了一套近乎完美的刮削体系。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Plex刮削正确姿势">
+<meta property="og:url" content="http://example.com/posts/Plex%E5%88%AE%E5%89%8A%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/index.html">
+<meta property="og:site_name" content="Gamesme&#39;s Blog">
+<meta property="og:description" content="前言最近购置了一台 DS920+ ，配合以前购入的Plex永久订阅开始搭建家庭媒体服务器。 Plex自带的刮削器针对媒体文件命名有要求，而且刮削下来的meta信息参差不齐。 一番搜索发现了一套近乎完美的刮削体系。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/tmm-setting-source.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/tmm-setting-tmdb.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/tmm-setting-systemdefualt.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/tmm-scrap-movie-menu.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/tmm-search-movies.gif">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/tmm-rename-movies.gif">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/plex-plugins-dir-syno.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/plex-plugin-xmbcinfo-movie.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/plex-xmbcnfo-setting.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/plex-media-library-movie-xmbcnfo.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/plex-plugins-xmbcnfo-tv.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/plex-tv-xmbcnfo-enable.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/pms-movie-matching.gif">
+<meta property="article:published_time" content="2021-07-01T07:54:00.000Z">
+<meta property="article:modified_time" content="2021-07-01T07:54:00.000Z">
+<meta property="article:author" content="Gamesme">
+<meta property="article:tag" content="原创">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.gamesme.cn/images/tmm-setting-source.png">
+
+
+<link rel="canonical" href="http://example.com/posts/Plex%E5%88%AE%E5%89%8A%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/Plex%E5%88%AE%E5%89%8A%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/","path":"posts/Plex刮削正确姿势/","title":"Plex刮削正确姿势"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Plex刮削正确姿势 | Gamesme's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Gamesme's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">10</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TinyMediaManager"><span class="nav-number">3.</span> <span class="nav-text">TinyMediaManager</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.1.</span> <span class="nav-text">基础设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">3.2.</span> <span class="nav-text">基本使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Plex-%E6%8F%92%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">Plex 插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XBMCnfoMoviesImporter"><span class="nav-number">4.1.</span> <span class="nav-text">XBMCnfoMoviesImporter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XBMCnfoTVImporter"><span class="nav-number">4.2.</span> <span class="nav-text">XBMCnfoTVImporter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%B0%81%E9%9D%A2%E6%98%AF%E7%94%B5%E5%BD%B1%E7%BC%A9%E7%95%A5%E5%9B%BE%E8%A7%A3%E5%86%B3"><span class="nav-number">4.3.</span> <span class="nav-text">默认封面是电影缩略图解决</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Gamesme"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Gamesme</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gamesme" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gamesme" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:i@gamesme.me" title="E-Mail → mailto:i@gamesme.me" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://ucw.moe/" title="https:&#x2F;&#x2F;ucw.moe&#x2F;" rel="noopener" target="_blank">无限UCW</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.moenis.com/" title="https:&#x2F;&#x2F;www.moenis.com&#x2F;" rel="noopener" target="_blank">提普</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/Plex%E5%88%AE%E5%89%8A%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Gamesme">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gamesme's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Plex刮削正确姿势 | Gamesme's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Plex刮削正确姿势
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-01 15:54:00" itemprop="dateCreated datePublished" datetime="2021-07-01T15:54:00+08:00">2021-07-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">分享</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近购置了一台 DS920+ ，配合以前购入的Plex永久订阅开始搭建家庭媒体服务器。</p>
+<p>Plex自带的刮削器针对媒体文件命名有要求，而且刮削下来的meta信息参差不齐。</p>
+<p>一番搜索发现了一套近乎完美的刮削体系。</p>
+<span id="more"></span>
+
+<hr>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.plex.tv/">Plex 媒体服务器</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.tinymediamanager.org/">TinyMediaManager</a></p>
+</li>
+<li><p>Plex插件<a target="_blank" rel="noopener" href="https://github.com/gboudreau/XBMCnfoMoviesImporter.bundle">XBMCnfoMoviesImporter.bundle</a> 用于读取电影NFO</p>
+</li>
+<li><p>Plex插件<a target="_blank" rel="noopener" href="https://github.com/gboudreau/XBMCnfoTVImporter.bundle">XBMCnfoTVImporter.bundle</a> 用于读取电视节目NFO</p>
+</li>
+</ul>
+<h2 id="TinyMediaManager"><a href="#TinyMediaManager" class="headerlink" title="TinyMediaManager"></a>TinyMediaManager</h2><p>从官网下载安装tmm(TinyMediaManager,下同)，一路下一步打开即可。</p>
+<h3 id="基础设置"><a href="#基础设置" class="headerlink" title="基础设置"></a>基础设置</h3><p>首先打开设置添加媒体库的位置，电影与电视节目的操作类似。</p>
+<img src="https://cdn.gamesme.cn/images/tmm-setting-source.png" alt="tmm-setting-source"  />
+
+<p>选择刮削使用的数据来源，此处建议选择tmdb。imdb数据最全，但是对中文的支持性不是太好。</p>
+<p><img src="https://cdn.gamesme.cn/images/tmm-setting-tmdb.png" alt="tmm-setting-tmdb"></p>
+<p>tmm内置了常见媒体服务器的预设设置，在这里我们选择Plex一键应用设置。</p>
+<p><img src="https://cdn.gamesme.cn/images/tmm-setting-systemdefualt.png" alt="tmm-setting-systemdefualt"></p>
+<p>基本上保持默认即可使用，如果有特殊需求可以打开tmm官网文档查看高级设置。</p>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><p>以电影文件为例，右键其打开搜索并刮削所选电影。</p>
+<p><img src="https://cdn.gamesme.cn/images/tmm-scrap-movie-menu.png" alt="tmm-scrap-movie-menu"></p>
+<p>然后修正正确的电影名字，点击搜索即可刮削电影相关信息，并且自动写入nfo文件。</p>
+<p><img src="https://cdn.gamesme.cn/images/tmm-search-movies.gif" alt="tmm-search-movies"></p>
+<p>刮削完成后，tmm还支持对文件进行批量重命名与整理。选中电影单击重命名&amp;清理即可。很方便</p>
+<p><img src="https://cdn.gamesme.cn/images/tmm-rename-movies.gif" alt="tmm-rename-movies"></p>
+<p>针对电视节目也是类似的操作。</p>
+<h2 id="Plex-插件"><a href="#Plex-插件" class="headerlink" title="Plex 插件"></a>Plex 插件</h2><p>通过tmm对视频文件刮削整理后，Plex的在线刮削器就可抛弃了。</p>
+<p>下载好两个插件后，将其解压出来的.bundle文件夹放置到PlexMediaServer的指定目录下然后重启PlexMediaServer即可。</p>
+<p><img src="https://cdn.gamesme.cn/images/plex-plugins-dir-syno.png" alt="image-20210701163459804"></p>
+<p>图中群晖系统Plex插件目录</p>
+<p><code>Plex/Library/Application Support/Plex Media Server/Plugins </code></p>
+<h3 id="XBMCnfoMoviesImporter"><a href="#XBMCnfoMoviesImporter" class="headerlink" title="XBMCnfoMoviesImporter"></a>XBMCnfoMoviesImporter</h3><p>接下来就能在 Plex设置-代理-电影 启用这个插件。</p>
+<p><img src="https://cdn.gamesme.cn/images/plex-plugin-xmbcinfo-movie.png" alt="image-20210701163705466"></p>
+<p>在设置中勾掉这个选项</p>
+<p><img src="https://cdn.gamesme.cn/images/plex-xmbcnfo-setting.png" alt="image-20210701164009941"></p>
+<p>最后在资料库设置选择这个代理即可</p>
+<p><img src="https://cdn.gamesme.cn/images/plex-media-library-movie-xmbcnfo.png" alt="image-20210701164140533"></p>
+<h3 id="XBMCnfoTVImporter"><a href="#XBMCnfoTVImporter" class="headerlink" title="XBMCnfoTVImporter"></a>XBMCnfoTVImporter</h3><p>在 Plex设置-代理-电视节目 启用这个插件</p>
+<p><img src="https://cdn.gamesme.cn/images/plex-plugins-xmbcnfo-tv.png" alt="image-20210701164412500"></p>
+<p><img src="https://cdn.gamesme.cn/images/plex-tv-xmbcnfo-enable.png" alt="image-20210701164642921"></p>
+<p>这个插件默认会根据tag生成collection，目前还没发现在哪儿可以禁用这个设置。</p>
+<h3 id="默认封面是电影缩略图解决"><a href="#默认封面是电影缩略图解决" class="headerlink" title="默认封面是电影缩略图解决"></a>默认封面是电影缩略图解决</h3><p>只需要打开电影菜单，选择修正匹配&#x2F;取消匹配后再次匹配即可正确加载nfo信息。</p>
+<p><img src="https://cdn.gamesme.cn/images/pms-movie-matching.gif" alt="pms-movie-matching"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><script type="text/javascript">
+    (function () {
+        let times = document.getElementsByTagName('time');
+        if (times.length === 0) {
+            return;
+        }
+        let posts = document.getElementsByClassName('post-body');
+        if (posts.length === 0) {
+            return;
+        }
+        let pubTime = new Date(times[0].dateTime);  /* 文章发布时间戳 */
+        let now = Date.now()  /* 当前时间戳 */
+        let interval = parseInt(now - pubTime)
+        /* 发布时间超过指定时间（毫秒） */
+        if (interval > 3600 * 24 * 30 * 1000) {
+            if (times.length === 2) {
+                let modTime = new Date(times[1].dateTime); /* 文章发布时间戳 */
+                let interval2 = parseInt(now - modTime)
+                let days = parseInt(interval / 86400000)
+                let daysModify = parseInt(interval2 / 86400000)
+                posts[0].innerHTML = '<div class="note" style="font-size:0.9rem">' +
+                    '<p>请注意，本文编写于 ' + days + ' 天前，最后修改于 ' + daysModify + ' 天前，其中某些信息可能已经过时，请注意甄别。' +
+                    '</p></div>' + posts[0].innerHTML;
+            } else {
+                let days = parseInt(interval / 86400000)
+                posts[0].innerHTML = '<div class="note" style="font-size:0.9rem">' +
+                    '<p>请注意，本文编写于 ' + days + ' 天前，其中某些信息可能已经过时，请注意甄别。' +
+                    '</p></div>' + posts[0].innerHTML;
+            }
+        }
+
+    })();
+</script>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Gamesme
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/posts/Plex%E5%88%AE%E5%89%8A%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/" title="Plex刮削正确姿势">http://example.com/posts/Plex刮削正确姿势/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%8E%9F%E5%88%9B/" rel="tag"># 原创</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/%E4%BB%8Etypecho%E8%BF%81%E7%A7%BB%E8%87%B3Hexo/" rel="prev" title="从typecho迁移至Hexo">
+                  <i class="fa fa-chevron-left"></i> 从typecho迁移至Hexo
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">桂ICP备19003394号 </a>
+      <img src="/images/ba.png" alt=""><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=45030402000164" rel="noopener" target="_blank">桂公网安备45030402000164号 </a>
+  </div>
+
+<div class="copyright">
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gamesme</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

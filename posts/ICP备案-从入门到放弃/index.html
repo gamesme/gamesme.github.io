@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前言看了群里的大佬都用上了国内的CDN一直用香港免备案VPS的我也起了备案的想法说干就干(本次以主流的腾讯云为例)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ICP备案-从入门到放弃">
+<meta property="og:url" content="http://example.com/posts/ICP%E5%A4%87%E6%A1%88-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/index.html">
+<meta property="og:site_name" content="Gamesme&#39;s Blog">
+<meta property="og:description" content="前言看了群里的大佬都用上了国内的CDN一直用香港免备案VPS的我也起了备案的想法说干就干(本次以主流的腾讯云为例)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/qcloudbeian1.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/qcloudbeian2.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/qcloudbeian3.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/qcloudbeian5.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/qcloudbeian6.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/zhenshixingheyandan.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/qcloudbeian7.png">
+<meta property="article:published_time" content="2019-04-24T13:18:00.000Z">
+<meta property="article:modified_time" content="2019-04-24T13:18:00.000Z">
+<meta property="article:author" content="Gamesme">
+<meta property="article:tag" content="备案">
+<meta property="article:tag" content="ICP">
+<meta property="article:tag" content="腾讯云">
+<meta property="article:tag" content="域名">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.gamesme.cn/images/qcloudbeian1.png">
+
+
+<link rel="canonical" href="http://example.com/posts/ICP%E5%A4%87%E6%A1%88-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/ICP%E5%A4%87%E6%A1%88-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/","path":"posts/ICP备案-从入门到放弃/","title":"ICP备案-从入门到放弃"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>ICP备案-从入门到放弃 | Gamesme's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Gamesme's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">10</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E5%A4%87%E6%A1%88"><span class="nav-number">3.</span> <span class="nav-text">开始备案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Gamesme"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Gamesme</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/gamesme" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gamesme" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:i@gamesme.me" title="E-Mail → mailto:i@gamesme.me" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://ucw.moe/" title="https:&#x2F;&#x2F;ucw.moe&#x2F;" rel="noopener" target="_blank">无限UCW</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.moenis.com/" title="https:&#x2F;&#x2F;www.moenis.com&#x2F;" rel="noopener" target="_blank">提普</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/ICP%E5%A4%87%E6%A1%88-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Gamesme">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gamesme's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="ICP备案-从入门到放弃 | Gamesme's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ICP备案-从入门到放弃
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-04-24 21:18:00" itemprop="dateCreated datePublished" datetime="2019-04-24T21:18:00+08:00">2019-04-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>看了群里的大佬都用上了国内的CDN<br>一直用香港免备案VPS的我也起了备案的想法<br>说干就干(本次以主流的<strong>腾讯云</strong>为例)</p>
+<span id="more"></span>
+
+
+<hr>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>在你的接入商查看备案系统是如何工作的</li>
+<li>居民身份证扫描件</li>
+<li>手持居民身份证照</li>
+<li>所在接入商拥有VPS&#x2F;虚拟主机且不少于三个月有效期</li>
+<li>一个<a target="_blank" rel="noopener" href="http://域名.信息/">允许备案</a>的域名</li>
+<li>接入商的幕布背景（亲测腾讯云可在备案之前免费领取）&#x2F; 或去指定拍照点拍摄幕布照</li>
+</ul>
+<hr>
+<h2 id="开始备案"><a href="#开始备案" class="headerlink" title="开始备案"></a>开始备案</h2><p>1.首先登陆备案系统<br><br>2.输入你需要备案的域名 单击检测域名 <br><br><img src="https://cdn.gamesme.cn/images/qcloudbeian1.png"><br>3.如果符合允许备案域名的条件会让你填写资料<br><br><img src="https://cdn.gamesme.cn/images/qcloudbeian2.png"><br>4.填写主办人信息<br><br><img src="https://cdn.gamesme.cn/images/qcloudbeian3.png"><br>5.填写网站信息<br><br><img src="https://cdn.gamesme.cn/images/qcloudbeian5.png"><br>此处比较坑的地方就来了，网站名称不得出现 博客、主页、品牌、企业名称、娱乐性质的名词。建议各位从以下关键词等选择：</p>
+<pre class="line-numbers language-none"><code class="language-none">XX生活点滴
+XX技术分享
+XX小站
+XX日记
+.
+.
+.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>最无语的是<code>排位</code>这个词居然不能用。反正网站名是可以重复的，如果实在不知道取什么好，建议去备案管理局查询以下已备案的网站名称。<br><br>6.上传照片&#x2F;证件扫描&#x2F;网站真实性核验单<br><img src="https://cdn.gamesme.cn/images/qcloudbeian6.png"><br>对于真实性核验单，是需要<strong>下载打印</strong>且<strong>亲笔签名扫描</strong>后上传<br><img src="https://cdn.gamesme.cn/images/zhenshixingheyandan.png" alt="核验单样本"><br>7.提交初审<br><img src="https://cdn.gamesme.cn/images/qcloudbeian7.png"><br>在这个期间，如果你的备案资料有问题，腾讯云（接入商）的小姐姐（或者老铁）会打电话来告诉你该如何修改<br>8.提交管局<br>提交了以后就是漫长的等待了。根据人品，平均需要10到20个工作日审核完成。期间某些地区需要提交短信验证码或者别的操作，详情就请关注备案管理局的官方网站。</p>
+<hr>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>小弟我从提交到审核完毕，花了10天。<br>提交初审+申请幕布 大约3天 （吐槽一下腾讯云发的免费幕布是用顺丰特惠。。等的好辛苦）<br>初审修改 大约半天 （注意接电话，当天修改 当天审核）<br>管局审核 大约7天（5工作日+2周末）<br>刚开始折腾备案十分激动，于是在套路云也提交了接入备案。但是被初审审核的兄弟退回了（苦于没有打印机+太懒了，用PDF的签名功能签的字）<br>然后就放弃了…还是良心云良心<br>而且良心云在你备案完成后还送一些优惠券<br>真是业界良心</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><script type="text/javascript">
+    (function () {
+        let times = document.getElementsByTagName('time');
+        if (times.length === 0) {
+            return;
+        }
+        let posts = document.getElementsByClassName('post-body');
+        if (posts.length === 0) {
+            return;
+        }
+        let pubTime = new Date(times[0].dateTime);  /* 文章发布时间戳 */
+        let now = Date.now()  /* 当前时间戳 */
+        let interval = parseInt(now - pubTime)
+        /* 发布时间超过指定时间（毫秒） */
+        if (interval > 3600 * 24 * 30 * 1000) {
+            if (times.length === 2) {
+                let modTime = new Date(times[1].dateTime); /* 文章发布时间戳 */
+                let interval2 = parseInt(now - modTime)
+                let days = parseInt(interval / 86400000)
+                let daysModify = parseInt(interval2 / 86400000)
+                posts[0].innerHTML = '<div class="note" style="font-size:0.9rem">' +
+                    '<p>请注意，本文编写于 ' + days + ' 天前，最后修改于 ' + daysModify + ' 天前，其中某些信息可能已经过时，请注意甄别。' +
+                    '</p></div>' + posts[0].innerHTML;
+            } else {
+                let days = parseInt(interval / 86400000)
+                posts[0].innerHTML = '<div class="note" style="font-size:0.9rem">' +
+                    '<p>请注意，本文编写于 ' + days + ' 天前，其中某些信息可能已经过时，请注意甄别。' +
+                    '</p></div>' + posts[0].innerHTML;
+            }
+        }
+
+    })();
+</script>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Gamesme
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/posts/ICP%E5%A4%87%E6%A1%88-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/" title="ICP备案-从入门到放弃">http://example.com/posts/ICP备案-从入门到放弃/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%A4%87%E6%A1%88/" rel="tag"># 备案</a>
+              <a href="/tags/ICP/" rel="tag"># ICP</a>
+              <a href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" rel="tag"># 腾讯云</a>
+              <a href="/tags/%E5%9F%9F%E5%90%8D/" rel="tag"># 域名</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/%E7%BA%AF%E5%87%80CentOS-7-%E5%AE%89%E8%A3%85BBR+Deluge/" rel="prev" title="纯净CentOS 7 安装BBR+Deluge">
+                  <i class="fa fa-chevron-left"></i> 纯净CentOS 7 安装BBR+Deluge
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84RSS%E6%9C%8D%E5%8A%A1/" rel="next" title="搭建自己的RSS服务">
+                  搭建自己的RSS服务 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">桂ICP备19003394号 </a>
+      <img src="/images/ba.png" alt=""><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=45030402000164" rel="noopener" target="_blank">桂公网安备45030402000164号 </a>
+  </div>
+
+<div class="copyright">
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gamesme</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
