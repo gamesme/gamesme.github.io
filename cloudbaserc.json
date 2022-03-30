@@ -1,0 +1,20 @@
+{
+    "envId": "gamesme-cn-3goz8ve9b53b5ace",
+    "version": "2.0",
+    "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
+    "functionRoot": "./functions",
+    "functions": [],
+    "region": "ap-guangzhou",
+    "framework": {
+        "name": "blog-hexo",
+        "plugins": {
+            "hexo": {
+                "use": "@cloudbase/framework-plugin-website",
+                "inputs": {
+                    "buildCommand": "npx hexo generate",
+                    "outputPath": "./public"
+                }
+            }
+        }
+    }
+}
