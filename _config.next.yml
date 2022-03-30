@@ -647,7 +647,12 @@ utterances:
 # Isso
 # For more information: https://posativ.org/isso/
 isso: # <data_isso>
-
+# twikoo
+twikoo:
+  enable: true
+  visitor: true
+  envId: gamesme-cn-3goz8ve9b53b5ace # 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
+  region: ap-guangzhou # 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
 
 # ---------------------------------------------------------------
 # Post Widgets & Content Sharing Services
