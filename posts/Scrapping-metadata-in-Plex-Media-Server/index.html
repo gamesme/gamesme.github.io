@@ -20,39 +20,42 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="前言看了群里的大佬都用上了国内的CDN一直用香港免备案VPS的我也起了备案的想法说干就干(本次以主流的腾讯云为例)">
+    <meta name="description" content="前言最近购置了一台 DS920+ ，配合以前购入的Plex永久订阅开始搭建家庭媒体服务器。 Plex自带的刮削器针对媒体文件命名有要求，而且刮削下来的meta信息参差不齐。 一番搜索发现了一套近乎完美的刮削体系。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ICP备案-从入门到放弃">
-<meta property="og:url" content="http://example.com/posts/ICP%E5%A4%87%E6%A1%88-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/index.html">
+<meta property="og:title" content="Plex刮削正确姿势">
+<meta property="og:url" content="http://example.com/posts/Scrapping-metadata-in-Plex-Media-Server/index.html">
 <meta property="og:site_name" content="Gamesme&#39;s Blog">
-<meta property="og:description" content="前言看了群里的大佬都用上了国内的CDN一直用香港免备案VPS的我也起了备案的想法说干就干(本次以主流的腾讯云为例)">
+<meta property="og:description" content="前言最近购置了一台 DS920+ ，配合以前购入的Plex永久订阅开始搭建家庭媒体服务器。 Plex自带的刮削器针对媒体文件命名有要求，而且刮削下来的meta信息参差不齐。 一番搜索发现了一套近乎完美的刮削体系。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/qcloudbeian1.png">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/qcloudbeian2.png">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/qcloudbeian3.png">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/qcloudbeian5.png">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/qcloudbeian6.png">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/zhenshixingheyandan.png">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/qcloudbeian7.png">
-<meta property="article:published_time" content="2019-04-24T13:18:00.000Z">
-<meta property="article:modified_time" content="2019-04-24T13:18:00.000Z">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/tmm-setting-source.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/tmm-setting-tmdb.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/tmm-setting-systemdefualt.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/tmm-scrap-movie-menu.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/tmm-search-movies.gif">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/tmm-rename-movies.gif">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/plex-plugins-dir-syno.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/plex-plugin-xmbcinfo-movie.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/plex-xmbcnfo-setting.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/plex-media-library-movie-xmbcnfo.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/plex-plugins-xmbcnfo-tv.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/plex-tv-xmbcnfo-enable.png">
+<meta property="og:image" content="https://cdn.gamesme.cn/images/pms-movie-matching.gif">
+<meta property="article:published_time" content="2021-07-01T07:54:00.000Z">
+<meta property="article:modified_time" content="2021-07-01T07:54:00.000Z">
 <meta property="article:author" content="Gamesme">
-<meta property="article:tag" content="备案">
-<meta property="article:tag" content="ICP">
-<meta property="article:tag" content="腾讯云">
-<meta property="article:tag" content="域名">
+<meta property="article:tag" content="原创">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.gamesme.cn/images/qcloudbeian1.png">
+<meta name="twitter:image" content="https://cdn.gamesme.cn/images/tmm-setting-source.png">
 
 
-<link rel="canonical" href="http://example.com/posts/ICP%E5%A4%87%E6%A1%88-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/">
+<link rel="canonical" href="http://example.com/posts/Scrapping-metadata-in-Plex-Media-Server/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/ICP%E5%A4%87%E6%A1%88-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/","path":"posts/ICP备案-从入门到放弃/","title":"ICP备案-从入门到放弃"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/Scrapping-metadata-in-Plex-Media-Server/","path":"posts/Scrapping-metadata-in-Plex-Media-Server/","title":"Plex刮削正确姿势"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>ICP备案-从入门到放弃 | Gamesme's Blog</title>
+<title>Plex刮削正确姿势 | Gamesme's Blog</title>
   
 
 
@@ -130,7 +133,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E5%A4%87%E6%A1%88"><span class="nav-number">3.</span> <span class="nav-text">开始备案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TinyMediaManager"><span class="nav-number">3.</span> <span class="nav-text">TinyMediaManager</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.1.</span> <span class="nav-text">基础设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">3.2.</span> <span class="nav-text">基本使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Plex-%E6%8F%92%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">Plex 插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XBMCnfoMoviesImporter"><span class="nav-number">4.1.</span> <span class="nav-text">XBMCnfoMoviesImporter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XBMCnfoTVImporter"><span class="nav-number">4.2.</span> <span class="nav-text">XBMCnfoTVImporter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%B0%81%E9%9D%A2%E6%98%AF%E7%94%B5%E5%BD%B1%E7%BC%A9%E7%95%A5%E5%9B%BE%E8%A7%A3%E5%86%B3"><span class="nav-number">4.3.</span> <span class="nav-text">默认封面是电影缩略图解决</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -199,7 +202,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/posts/ICP%E5%A4%87%E6%A1%88-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/Scrapping-metadata-in-Plex-Media-Server/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -212,12 +215,12 @@
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="ICP备案-从入门到放弃 | Gamesme's Blog">
+      <meta itemprop="name" content="Plex刮削正确姿势 | Gamesme's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          ICP备案-从入门到放弃
+          Plex刮削正确姿势
         </h1>
 
         <div class="post-meta-container">
@@ -228,7 +231,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2019-04-24 21:18:00" itemprop="dateCreated datePublished" datetime="2019-04-24T21:18:00+08:00">2019-04-24</time>
+      <time title="创建时间：2021-07-01 15:54:00" itemprop="dateCreated datePublished" datetime="2021-07-01T15:54:00+08:00">2021-07-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -236,10 +239,18 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+          <a href="/categories/%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">分享</span></a>
         </span>
     </span>
 
+  
+    <span id="/posts/Scrapping-metadata-in-Plex-Media-Server/" class="post-meta-item twikoo_visitors" data-flag-title="Plex刮削正确姿势" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="twikoo_visitors"></span>
+    </span>
   
 </div>
 
@@ -250,31 +261,55 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>看了群里的大佬都用上了国内的CDN<br>一直用香港免备案VPS的我也起了备案的想法<br>说干就干(本次以主流的<strong>腾讯云</strong>为例)</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近购置了一台 DS920+ ，配合以前购入的Plex永久订阅开始搭建家庭媒体服务器。</p>
+<p>Plex自带的刮削器针对媒体文件命名有要求，而且刮削下来的meta信息参差不齐。</p>
+<p>一番搜索发现了一套近乎完美的刮削体系。</p>
 <span id="more"></span>
 
-
 <hr>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
-<li>在你的接入商查看备案系统是如何工作的</li>
-<li>居民身份证扫描件</li>
-<li>手持居民身份证照</li>
-<li>所在接入商拥有VPS&#x2F;虚拟主机且不少于三个月有效期</li>
-<li>一个<a target="_blank" rel="noopener" href="http://域名.信息/">允许备案</a>的域名</li>
-<li>接入商的幕布背景（亲测腾讯云可在备案之前免费领取）&#x2F; 或去指定拍照点拍摄幕布照</li>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.plex.tv/">Plex 媒体服务器</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.tinymediamanager.org/">TinyMediaManager</a></p>
+</li>
+<li><p>Plex插件<a target="_blank" rel="noopener" href="https://github.com/gboudreau/XBMCnfoMoviesImporter.bundle">XBMCnfoMoviesImporter.bundle</a> 用于读取电影NFO</p>
+</li>
+<li><p>Plex插件<a target="_blank" rel="noopener" href="https://github.com/gboudreau/XBMCnfoTVImporter.bundle">XBMCnfoTVImporter.bundle</a> 用于读取电视节目NFO</p>
+</li>
 </ul>
-<hr>
-<h2 id="开始备案"><a href="#开始备案" class="headerlink" title="开始备案"></a>开始备案</h2><p>1.首先登陆备案系统<br><br>2.输入你需要备案的域名 单击检测域名 <br><br><img src="https://cdn.gamesme.cn/images/qcloudbeian1.png"><br>3.如果符合允许备案域名的条件会让你填写资料<br><br><img src="https://cdn.gamesme.cn/images/qcloudbeian2.png"><br>4.填写主办人信息<br><br><img src="https://cdn.gamesme.cn/images/qcloudbeian3.png"><br>5.填写网站信息<br><br><img src="https://cdn.gamesme.cn/images/qcloudbeian5.png"><br>此处比较坑的地方就来了，网站名称不得出现 博客、主页、品牌、企业名称、娱乐性质的名词。建议各位从以下关键词等选择：</p>
-<pre class="line-numbers language-none"><code class="language-none">XX生活点滴
-XX技术分享
-XX小站
-XX日记
-.
-.
-.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>最无语的是<code>排位</code>这个词居然不能用。反正网站名是可以重复的，如果实在不知道取什么好，建议去备案管理局查询以下已备案的网站名称。<br><br>6.上传照片&#x2F;证件扫描&#x2F;网站真实性核验单<br><img src="https://cdn.gamesme.cn/images/qcloudbeian6.png"><br>对于真实性核验单，是需要<strong>下载打印</strong>且<strong>亲笔签名扫描</strong>后上传<br><img src="https://cdn.gamesme.cn/images/zhenshixingheyandan.png" alt="核验单样本"><br>7.提交初审<br><img src="https://cdn.gamesme.cn/images/qcloudbeian7.png"><br>在这个期间，如果你的备案资料有问题，腾讯云（接入商）的小姐姐（或者老铁）会打电话来告诉你该如何修改<br>8.提交管局<br>提交了以后就是漫长的等待了。根据人品，平均需要10到20个工作日审核完成。期间某些地区需要提交短信验证码或者别的操作，详情就请关注备案管理局的官方网站。</p>
-<hr>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>小弟我从提交到审核完毕，花了10天。<br>提交初审+申请幕布 大约3天 （吐槽一下腾讯云发的免费幕布是用顺丰特惠。。等的好辛苦）<br>初审修改 大约半天 （注意接电话，当天修改 当天审核）<br>管局审核 大约7天（5工作日+2周末）<br>刚开始折腾备案十分激动，于是在套路云也提交了接入备案。但是被初审审核的兄弟退回了（苦于没有打印机+太懒了，用PDF的签名功能签的字）<br>然后就放弃了…还是良心云良心<br>而且良心云在你备案完成后还送一些优惠券<br>真是业界良心</p>
+<h2 id="TinyMediaManager"><a href="#TinyMediaManager" class="headerlink" title="TinyMediaManager"></a>TinyMediaManager</h2><p>从官网下载安装tmm(TinyMediaManager,下同)，一路下一步打开即可。</p>
+<h3 id="基础设置"><a href="#基础设置" class="headerlink" title="基础设置"></a>基础设置</h3><p>首先打开设置添加媒体库的位置，电影与电视节目的操作类似。</p>
+<img src="https://cdn.gamesme.cn/images/tmm-setting-source.png" alt="tmm-setting-source"  />
+
+<p>选择刮削使用的数据来源，此处建议选择tmdb。imdb数据最全，但是对中文的支持性不是太好。</p>
+<p><img src="https://cdn.gamesme.cn/images/tmm-setting-tmdb.png" alt="tmm-setting-tmdb"></p>
+<p>tmm内置了常见媒体服务器的预设设置，在这里我们选择Plex一键应用设置。</p>
+<p><img src="https://cdn.gamesme.cn/images/tmm-setting-systemdefualt.png" alt="tmm-setting-systemdefualt"></p>
+<p>基本上保持默认即可使用，如果有特殊需求可以打开tmm官网文档查看高级设置。</p>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><p>以电影文件为例，右键其打开搜索并刮削所选电影。</p>
+<p><img src="https://cdn.gamesme.cn/images/tmm-scrap-movie-menu.png" alt="tmm-scrap-movie-menu"></p>
+<p>然后修正正确的电影名字，点击搜索即可刮削电影相关信息，并且自动写入nfo文件。</p>
+<p><img src="https://cdn.gamesme.cn/images/tmm-search-movies.gif" alt="tmm-search-movies"></p>
+<p>刮削完成后，tmm还支持对文件进行批量重命名与整理。选中电影单击重命名&amp;清理即可。很方便</p>
+<p><img src="https://cdn.gamesme.cn/images/tmm-rename-movies.gif" alt="tmm-rename-movies"></p>
+<p>针对电视节目也是类似的操作。</p>
+<h2 id="Plex-插件"><a href="#Plex-插件" class="headerlink" title="Plex 插件"></a>Plex 插件</h2><p>通过tmm对视频文件刮削整理后，Plex的在线刮削器就可抛弃了。</p>
+<p>下载好两个插件后，将其解压出来的.bundle文件夹放置到PlexMediaServer的指定目录下然后重启PlexMediaServer即可。</p>
+<p><img src="https://cdn.gamesme.cn/images/plex-plugins-dir-syno.png" alt="image-20210701163459804"></p>
+<p>图中群晖系统Plex插件目录</p>
+<p><code>Plex/Library/Application Support/Plex Media Server/Plugins </code></p>
+<h3 id="XBMCnfoMoviesImporter"><a href="#XBMCnfoMoviesImporter" class="headerlink" title="XBMCnfoMoviesImporter"></a>XBMCnfoMoviesImporter</h3><p>接下来就能在 Plex设置-代理-电影 启用这个插件。</p>
+<p><img src="https://cdn.gamesme.cn/images/plex-plugin-xmbcinfo-movie.png" alt="image-20210701163705466"></p>
+<p>在设置中勾掉这个选项</p>
+<p><img src="https://cdn.gamesme.cn/images/plex-xmbcnfo-setting.png" alt="image-20210701164009941"></p>
+<p>最后在资料库设置选择这个代理即可</p>
+<p><img src="https://cdn.gamesme.cn/images/plex-media-library-movie-xmbcnfo.png" alt="image-20210701164140533"></p>
+<h3 id="XBMCnfoTVImporter"><a href="#XBMCnfoTVImporter" class="headerlink" title="XBMCnfoTVImporter"></a>XBMCnfoTVImporter</h3><p>在 Plex设置-代理-电视节目 启用这个插件</p>
+<p><img src="https://cdn.gamesme.cn/images/plex-plugins-xmbcnfo-tv.png" alt="image-20210701164412500"></p>
+<p><img src="https://cdn.gamesme.cn/images/plex-tv-xmbcnfo-enable.png" alt="image-20210701164642921"></p>
+<p>这个插件默认会根据tag生成collection，目前还没发现在哪儿可以禁用这个设置。</p>
+<h3 id="默认封面是电影缩略图解决"><a href="#默认封面是电影缩略图解决" class="headerlink" title="默认封面是电影缩略图解决"></a>默认封面是电影缩略图解决</h3><p>只需要打开电影菜单，选择修正匹配&#x2F;取消匹配后再次匹配即可正确加载nfo信息。</p>
+<p><img src="https://cdn.gamesme.cn/images/pms-movie-matching.gif" alt="pms-movie-matching"></p>
 
     </div>
 
@@ -325,7 +360,7 @@ XX日记
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://example.com/posts/ICP%E5%A4%87%E6%A1%88-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/" title="ICP备案-从入门到放弃">http://example.com/posts/ICP备案-从入门到放弃/</a>
+      <a href="http://example.com/posts/Scrapping-metadata-in-Plex-Media-Server/" title="Plex刮削正确姿势">http://example.com/posts/Scrapping-metadata-in-Plex-Media-Server/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -334,24 +369,18 @@ XX日记
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E5%A4%87%E6%A1%88/" rel="tag"># 备案</a>
-              <a href="/tags/ICP/" rel="tag"># ICP</a>
-              <a href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" rel="tag"># 腾讯云</a>
-              <a href="/tags/%E5%9F%9F%E5%90%8D/" rel="tag"># 域名</a>
+              <a href="/tags/%E5%8E%9F%E5%88%9B/" rel="tag"># 原创</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/%E7%BA%AF%E5%87%80CentOS-7-%E5%AE%89%E8%A3%85BBR+Deluge/" rel="prev" title="纯净CentOS 7 安装BBR+Deluge">
-                  <i class="fa fa-chevron-left"></i> 纯净CentOS 7 安装BBR+Deluge
+                <a href="/posts/Migration-from-typecho-to-Hexo/" rel="prev" title="从typecho迁移至Hexo">
+                  <i class="fa fa-chevron-left"></i> 从typecho迁移至Hexo
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84RSS%E6%9C%8D%E5%8A%A1/" rel="next" title="搭建自己的RSS服务">
-                  搭建自己的RSS服务 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -363,6 +392,7 @@ XX日记
 
 
 
+    <div class="comments"><div id="twikoo-comments"></div></div>
 </div>
   </main>
 
@@ -402,6 +432,27 @@ XX日记
 
 
 
+<script class="next-config" data-name="twikoo" type="application/json">{"enable":true,"visitor":true,"envId":"gamesme-cn-3goz8ve9b53b5ace","region":"ap-guangzhou","el":"#twikoo-comments"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.twikoo.el)
+    .then(() => NexT.utils.getScript(
+      CONFIG.twikoo.jsUrl || 'https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js',
+      { condition: window.twikoo }
+    ))
+    .then(() => {
+      twikoo.init(CONFIG.twikoo);
+    });
+});
+</script>
+<style>
+.post-block, .comments {
+  overflow: visible;
+}
+.tk-owo-emotion {
+  display: inline-block;
+}
+</style>
 
 </body>
 </html>

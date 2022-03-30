@@ -20,42 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="前言最近购置了一台 DS920+ ，配合以前购入的Plex永久订阅开始搭建家庭媒体服务器。 Plex自带的刮削器针对媒体文件命名有要求，而且刮削下来的meta信息参差不齐。 一番搜索发现了一套近乎完美的刮削体系。">
+    <meta name="description" content="前言Tiny Tiny RSS（也可简称TT-RSS） 项目主页： https:&#x2F;&#x2F;tt-rss.org&#x2F;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Plex刮削正确姿势">
-<meta property="og:url" content="http://example.com/posts/Plex%E5%88%AE%E5%89%8A%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/index.html">
+<meta property="og:title" content="搭建自己的RSS服务">
+<meta property="og:url" content="http://example.com/posts/Setting-up-a-Self-hosted-tt-rss-server/index.html">
 <meta property="og:site_name" content="Gamesme&#39;s Blog">
-<meta property="og:description" content="前言最近购置了一台 DS920+ ，配合以前购入的Plex永久订阅开始搭建家庭媒体服务器。 Plex自带的刮削器针对媒体文件命名有要求，而且刮削下来的meta信息参差不齐。 一番搜索发现了一套近乎完美的刮削体系。">
+<meta property="og:description" content="前言Tiny Tiny RSS（也可简称TT-RSS） 项目主页： https:&#x2F;&#x2F;tt-rss.org&#x2F;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/tmm-setting-source.png">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/tmm-setting-tmdb.png">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/tmm-setting-systemdefualt.png">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/tmm-scrap-movie-menu.png">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/tmm-search-movies.gif">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/tmm-rename-movies.gif">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/plex-plugins-dir-syno.png">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/plex-plugin-xmbcinfo-movie.png">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/plex-xmbcnfo-setting.png">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/plex-media-library-movie-xmbcnfo.png">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/plex-plugins-xmbcnfo-tv.png">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/plex-tv-xmbcnfo-enable.png">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/pms-movie-matching.gif">
-<meta property="article:published_time" content="2021-07-01T07:54:00.000Z">
-<meta property="article:modified_time" content="2021-07-01T07:54:00.000Z">
+<meta property="article:published_time" content="2019-06-11T02:11:00.000Z">
+<meta property="article:modified_time" content="2019-06-11T02:11:00.000Z">
 <meta property="article:author" content="Gamesme">
 <meta property="article:tag" content="原创">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.gamesme.cn/images/tmm-setting-source.png">
 
 
-<link rel="canonical" href="http://example.com/posts/Plex%E5%88%AE%E5%89%8A%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/">
+<link rel="canonical" href="http://example.com/posts/Setting-up-a-Self-hosted-tt-rss-server/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/Plex%E5%88%AE%E5%89%8A%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/","path":"posts/Plex刮削正确姿势/","title":"Plex刮削正确姿势"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/Setting-up-a-Self-hosted-tt-rss-server/","path":"posts/Setting-up-a-Self-hosted-tt-rss-server/","title":"搭建自己的RSS服务"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Plex刮削正确姿势 | Gamesme's Blog</title>
+<title>搭建自己的RSS服务 | Gamesme's Blog</title>
   
 
 
@@ -133,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TinyMediaManager"><span class="nav-number">3.</span> <span class="nav-text">TinyMediaManager</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.1.</span> <span class="nav-text">基础设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">3.2.</span> <span class="nav-text">基本使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Plex-%E6%8F%92%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">Plex 插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XBMCnfoMoviesImporter"><span class="nav-number">4.1.</span> <span class="nav-text">XBMCnfoMoviesImporter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XBMCnfoTVImporter"><span class="nav-number">4.2.</span> <span class="nav-text">XBMCnfoTVImporter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%B0%81%E9%9D%A2%E6%98%AF%E7%94%B5%E5%BD%B1%E7%BC%A9%E7%95%A5%E5%9B%BE%E8%A7%A3%E5%86%B3"><span class="nav-number">4.3.</span> <span class="nav-text">默认封面是电影缩略图解决</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E9%83%A8%E7%BD%B2"><span class="nav-number">2.</span> <span class="nav-text">开始部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%90%8E%E7%AB%AF"><span class="nav-number">3.</span> <span class="nav-text">配置后端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.1.</span> <span class="nav-text">设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">安装主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%93%E5%B1%95"><span class="nav-number">4.1.</span> <span class="nav-text">拓展</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -202,7 +188,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/posts/Plex%E5%88%AE%E5%89%8A%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/Setting-up-a-Self-hosted-tt-rss-server/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -215,12 +201,12 @@
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Plex刮削正确姿势 | Gamesme's Blog">
+      <meta itemprop="name" content="搭建自己的RSS服务 | Gamesme's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Plex刮削正确姿势
+          搭建自己的RSS服务
         </h1>
 
         <div class="post-meta-container">
@@ -231,7 +217,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-07-01 15:54:00" itemprop="dateCreated datePublished" datetime="2021-07-01T15:54:00+08:00">2021-07-01</time>
+      <time title="创建时间：2019-06-11 10:11:00" itemprop="dateCreated datePublished" datetime="2019-06-11T10:11:00+08:00">2019-06-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -239,10 +225,18 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">分享</span></a>
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
         </span>
     </span>
 
+  
+    <span id="/posts/Setting-up-a-Self-hosted-tt-rss-server/" class="post-meta-item twikoo_visitors" data-flag-title="搭建自己的RSS服务" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="twikoo_visitors"></span>
+    </span>
   
 </div>
 
@@ -253,55 +247,55 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近购置了一台 DS920+ ，配合以前购入的Plex永久订阅开始搭建家庭媒体服务器。</p>
-<p>Plex自带的刮削器针对媒体文件命名有要求，而且刮削下来的meta信息参差不齐。</p>
-<p>一番搜索发现了一套近乎完美的刮削体系。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Tiny Tiny RSS（也可简称TT-RSS）</p>
+<p>项目主页： <a target="_blank" rel="noopener" href="https://tt-rss.org/">https://tt-rss.org/</a></p>
 <span id="more"></span>
 
-<hr>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
-<li><p><a target="_blank" rel="noopener" href="https://www.plex.tv/">Plex 媒体服务器</a> </p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.tinymediamanager.org/">TinyMediaManager</a></p>
-</li>
-<li><p>Plex插件<a target="_blank" rel="noopener" href="https://github.com/gboudreau/XBMCnfoMoviesImporter.bundle">XBMCnfoMoviesImporter.bundle</a> 用于读取电影NFO</p>
-</li>
-<li><p>Plex插件<a target="_blank" rel="noopener" href="https://github.com/gboudreau/XBMCnfoTVImporter.bundle">XBMCnfoTVImporter.bundle</a> 用于读取电视节目NFO</p>
-</li>
-</ul>
-<h2 id="TinyMediaManager"><a href="#TinyMediaManager" class="headerlink" title="TinyMediaManager"></a>TinyMediaManager</h2><p>从官网下载安装tmm(TinyMediaManager,下同)，一路下一步打开即可。</p>
-<h3 id="基础设置"><a href="#基础设置" class="headerlink" title="基础设置"></a>基础设置</h3><p>首先打开设置添加媒体库的位置，电影与电视节目的操作类似。</p>
-<img src="https://cdn.gamesme.cn/images/tmm-setting-source.png" alt="tmm-setting-source"  />
 
-<p>选择刮削使用的数据来源，此处建议选择tmdb。imdb数据最全，但是对中文的支持性不是太好。</p>
-<p><img src="https://cdn.gamesme.cn/images/tmm-setting-tmdb.png" alt="tmm-setting-tmdb"></p>
-<p>tmm内置了常见媒体服务器的预设设置，在这里我们选择Plex一键应用设置。</p>
-<p><img src="https://cdn.gamesme.cn/images/tmm-setting-systemdefualt.png" alt="tmm-setting-systemdefualt"></p>
-<p>基本上保持默认即可使用，如果有特殊需求可以打开tmm官网文档查看高级设置。</p>
-<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><p>以电影文件为例，右键其打开搜索并刮削所选电影。</p>
-<p><img src="https://cdn.gamesme.cn/images/tmm-scrap-movie-menu.png" alt="tmm-scrap-movie-menu"></p>
-<p>然后修正正确的电影名字，点击搜索即可刮削电影相关信息，并且自动写入nfo文件。</p>
-<p><img src="https://cdn.gamesme.cn/images/tmm-search-movies.gif" alt="tmm-search-movies"></p>
-<p>刮削完成后，tmm还支持对文件进行批量重命名与整理。选中电影单击重命名&amp;清理即可。很方便</p>
-<p><img src="https://cdn.gamesme.cn/images/tmm-rename-movies.gif" alt="tmm-rename-movies"></p>
-<p>针对电视节目也是类似的操作。</p>
-<h2 id="Plex-插件"><a href="#Plex-插件" class="headerlink" title="Plex 插件"></a>Plex 插件</h2><p>通过tmm对视频文件刮削整理后，Plex的在线刮削器就可抛弃了。</p>
-<p>下载好两个插件后，将其解压出来的.bundle文件夹放置到PlexMediaServer的指定目录下然后重启PlexMediaServer即可。</p>
-<p><img src="https://cdn.gamesme.cn/images/plex-plugins-dir-syno.png" alt="image-20210701163459804"></p>
-<p>图中群晖系统Plex插件目录</p>
-<p><code>Plex/Library/Application Support/Plex Media Server/Plugins </code></p>
-<h3 id="XBMCnfoMoviesImporter"><a href="#XBMCnfoMoviesImporter" class="headerlink" title="XBMCnfoMoviesImporter"></a>XBMCnfoMoviesImporter</h3><p>接下来就能在 Plex设置-代理-电影 启用这个插件。</p>
-<p><img src="https://cdn.gamesme.cn/images/plex-plugin-xmbcinfo-movie.png" alt="image-20210701163705466"></p>
-<p>在设置中勾掉这个选项</p>
-<p><img src="https://cdn.gamesme.cn/images/plex-xmbcnfo-setting.png" alt="image-20210701164009941"></p>
-<p>最后在资料库设置选择这个代理即可</p>
-<p><img src="https://cdn.gamesme.cn/images/plex-media-library-movie-xmbcnfo.png" alt="image-20210701164140533"></p>
-<h3 id="XBMCnfoTVImporter"><a href="#XBMCnfoTVImporter" class="headerlink" title="XBMCnfoTVImporter"></a>XBMCnfoTVImporter</h3><p>在 Plex设置-代理-电视节目 启用这个插件</p>
-<p><img src="https://cdn.gamesme.cn/images/plex-plugins-xmbcnfo-tv.png" alt="image-20210701164412500"></p>
-<p><img src="https://cdn.gamesme.cn/images/plex-tv-xmbcnfo-enable.png" alt="image-20210701164642921"></p>
-<p>这个插件默认会根据tag生成collection，目前还没发现在哪儿可以禁用这个设置。</p>
-<h3 id="默认封面是电影缩略图解决"><a href="#默认封面是电影缩略图解决" class="headerlink" title="默认封面是电影缩略图解决"></a>默认封面是电影缩略图解决</h3><p>只需要打开电影菜单，选择修正匹配&#x2F;取消匹配后再次匹配即可正确加载nfo信息。</p>
-<p><img src="https://cdn.gamesme.cn/images/pms-movie-matching.gif" alt="pms-movie-matching"></p>
+<p>优点&#x2F;特性：</p>
+<ol>
+<li>可自定义同步间隔；</li>
+<li>订阅源管理便捷、支持导入OPML；</li>
+<li>可自定过滤规则；</li>
+<li>安装主题&#x2F;插件非常简单；</li>
+<li>最重要的：目前仍处于比较活跃的开发中</li>
+</ol>
+<h2 id="开始部署"><a href="#开始部署" class="headerlink" title="开始部署"></a>开始部署</h2><p>环境要求<br>PHP 5.4 或以上；<br>PostgreSQL（9.1 或以上）或者 MySQL（必须支持InnoDB, TT-RSS不支持MyISAM）；</p>
+<p>官方部署文档<br><a target="_blank" rel="noopener" href="https://git.tt-rss.org/git/tt-rss/wiki/InstallationNotes">https://git.tt-rss.org/git/tt-rss/wiki/InstallationNotes</a></p>
+<p>下载程序并开始安装<br>在想要安装TT-RSS的网站根目录，执行git clone:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://tt-rss.org/git/tt-rss.git <span class="token builtin class-name">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>访问TT-RSS安装程序：</p>
+<p><a target="_blank" rel="noopener" href="http://yoursite/tt-rss/install/">http://yoursite/tt-rss/install/</a><br>你会看到如下的安装界面：</p>
+<p>填写完成后就会自动生成config.php的代码，你可以选择由安装程序自动生成config.php文件，或者自己复制后手动生成config.php文件。</p>
+<p>对于该文件，通常我们不需要进行额外的参数设置，不过如果你需要加入邮件提醒、用户注册等功能，可以参考其中的注释，自己进行参数设置。</p>
+<p>至此，TT-RSS其实已经安装完成了！</p>
+<h2 id="配置后端"><a href="#配置后端" class="headerlink" title="配置后端"></a>配置后端</h2><blockquote>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://git.tt-rss.org/git/tt-rss/wiki/UpdatingFeeds">https://git.tt-rss.org/git/tt-rss/wiki/UpdatingFeeds</a></p>
+</blockquote>
+<p>在这里，我采用了第二种方法，即crontab的方式。<br>这里需要注意的是更新脚本文件update.php或update_daemon2.php不能由root用户来执行，可以通过apache或者Nginx的运行用户来执行，如apache或者www等。<br>比如我们为www用户加入crontab</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">crontab -u www -e<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>添加如下内容：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">*/30 * * * * /usr/local/php/bin/php /data/wwwroot/安装TT-RSS的目录/update.php --feeds --quiet<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>需要注意：<br>上方的&#x2F;usr&#x2F;local&#x2F;php&#x2F;bin&#x2F;php也可能为&#x2F;usr&#x2F;bin&#x2F;php，具体以你实际为准；<br>同时也要注意上文提到的config.php中的路径需与上面统一；</p>
+<blockquote>
+<p>*&#x2F;30 代表每30分钟执行一次更新，你也可以按自己需求设定其他间隔。</p>
+</blockquote>
+<h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><p>以上完成后，我们像正常访问网站一样打开TT-RSS，默认账户密码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">username: admin, password: password<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>首次登录后请及时修改密码。同时建议创建新的使用者账户作为日常使用，与管理员账户隔开。</p>
+<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>Tiny Tiny RSS安装主题非常简单，只需将CSS文件放入themes目录下，并在后台进行选择即可。<br>目前看到仿Feedly和仿Google Reader的这两款主题比较受到大家欢迎:</p>
+<p>tt-rss-feedly-theme<br><a target="_blank" rel="noopener" href="https://github.com/levito/tt-rss-feedly-theme">https://github.com/levito/tt-rss-feedly-theme</a><br>clean-greader<br><a target="_blank" rel="noopener" href="https://github.com/naeramarth7/clean-greader">https://github.com/naeramarth7/clean-greader</a><br>以安装tt-rss-feedly-theme为例，先下载主题：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://github.com/levito/tt-rss-feedly-theme/archive/master.zip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>解压缩：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">unzip master.zip
+#复制主题至themes子目录
+cp tt-rss-feedly-theme-master&#x2F;feedly.css &#x2F;themes
+cp tt-rss-feedly-theme-master&#x2F;feedly &#x2F;themes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>而后我们至后台启用即可。</p>
+<h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><p>以下拓展的解释来自：<a target="_blank" rel="noopener" href="http://ju.outofmemory.cn/entry/39790">http://ju.outofmemory.cn/entry/39790</a></p>
+<blockquote>
+<p>af_unburn:解决feedburner等rss链接跳转;<br>bookmarklets:在设置-信息源生成bookmarklets标签;<br>embed_original:图标插件，点击图标会显示文章原始内容，而不是rss;<br>fever:模拟fever api，在设置-Fver<br>Emulation，设置好密码，可以和tt-rss的登录密码不同，然后就能支持fever的客户端比如reeder、Mr. Reader;<br>ff_feedcleaner:feed广告过滤，在设置标签生成FeecCleaner标签，过滤规则要用正则表达式，比较复杂;<br>googlereaderkeys:模拟google reader快捷键，如J、K等;<br>import_export:在设置-信息源，导入导出配置;<br>mail:图标插件，点击通过邮件分享;<br>mark_button:文章右下角能够快速将文章标记为已读未读;<br>mobilize:图标插件，点击显示readability简化的页面；<br>note:图标插件；<br>nsfw:根据标签隐藏文章内容；<br>share:图标插件，点击生成唯一的url方便分享；<br>swap_jk:添加j、k快捷键，类似vim</p>
+</blockquote>
 
     </div>
 
@@ -352,7 +346,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://example.com/posts/Plex%E5%88%AE%E5%89%8A%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/" title="Plex刮削正确姿势">http://example.com/posts/Plex刮削正确姿势/</a>
+      <a href="http://example.com/posts/Setting-up-a-Self-hosted-tt-rss-server/" title="搭建自己的RSS服务">http://example.com/posts/Setting-up-a-Self-hosted-tt-rss-server/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -368,11 +362,14 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/%E4%BB%8Etypecho%E8%BF%81%E7%A7%BB%E8%87%B3Hexo/" rel="prev" title="从typecho迁移至Hexo">
-                  <i class="fa fa-chevron-left"></i> 从typecho迁移至Hexo
+                <a href="/posts/Beian-from-scratch/" rel="prev" title="ICP备案-从入门到放弃">
+                  <i class="fa fa-chevron-left"></i> ICP备案-从入门到放弃
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/posts/Remove-useless-extensions-in-Xunlei-APP/" rel="next" title="Mac迅雷手动精简插件">
+                  Mac迅雷手动精简插件 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -384,6 +381,7 @@
 
 
 
+    <div class="comments"><div id="twikoo-comments"></div></div>
 </div>
   </main>
 
@@ -423,6 +421,27 @@
 
 
 
+<script class="next-config" data-name="twikoo" type="application/json">{"enable":true,"visitor":true,"envId":"gamesme-cn-3goz8ve9b53b5ace","region":"ap-guangzhou","el":"#twikoo-comments"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.twikoo.el)
+    .then(() => NexT.utils.getScript(
+      CONFIG.twikoo.jsUrl || 'https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js',
+      { condition: window.twikoo }
+    ))
+    .then(() => {
+      twikoo.init(CONFIG.twikoo);
+    });
+});
+</script>
+<style>
+.post-block, .comments {
+  overflow: visible;
+}
+.tk-owo-emotion {
+  display: inline-block;
+}
+</style>
 
 </body>
 </html>

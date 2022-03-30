@@ -20,34 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="前言之前装了一个 Deepin 系统发现没有必要，于是乎在磁盘管理直接把 Ext4分区格式化了想合并两个分区把SSD 变为一整块。">
+    <meta name="description" content="新撸了两台Hetzner的Dedicated Server拿来刷PT并且想通过Appnode来管理于是选择了安装CentOS 7然后发现CentOS下居然没有Deluge一番摸索于是有了这个教程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac修复引导失败(GUID磁盘)">
-<meta property="og:url" content="http://example.com/posts/Mac%E4%BF%AE%E5%A4%8D%E5%BC%95%E5%AF%BC%E5%A4%B1%E8%B4%A5(GUID%E7%A3%81%E7%9B%98)/index.html">
+<meta property="og:title" content="纯净CentOS 7 安装BBR+Deluge">
+<meta property="og:url" content="http://example.com/posts/Install-CentOS7-with-bbr-and-Deluge/index.html">
 <meta property="og:site_name" content="Gamesme&#39;s Blog">
-<meta property="og:description" content="前言之前装了一个 Deepin 系统发现没有必要，于是乎在磁盘管理直接把 Ext4分区格式化了想合并两个分区把SSD 变为一整块。">
+<meta property="og:description" content="新撸了两台Hetzner的Dedicated Server拿来刷PT并且想通过Appnode来管理于是选择了安装CentOS 7然后发现CentOS下居然没有Deluge一番摸索于是有了这个教程">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/Mac-xiufu-boot-soft.png">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/Mac-xiufu-boot-2.jpg">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/Mac-xiufu-boot-3.jpg">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/Mac-xiufu-boot-3.jpg">
-<meta property="og:image" content="https://cdn.gamesme.cn/images/MAc-xiufu-boot-4.jpg">
-<meta property="article:published_time" content="2019-04-07T20:26:00.000Z">
-<meta property="article:modified_time" content="2019-04-07T20:26:00.000Z">
+<meta property="article:published_time" content="2019-04-12T23:57:00.000Z">
+<meta property="article:modified_time" content="2019-04-12T23:57:00.000Z">
 <meta property="article:author" content="Gamesme">
-<meta property="article:tag" content="MacOS">
+<meta property="article:tag" content="原创">
+<meta property="article:tag" content="CentOS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.gamesme.cn/images/Mac-xiufu-boot-soft.png">
 
 
-<link rel="canonical" href="http://example.com/posts/Mac%E4%BF%AE%E5%A4%8D%E5%BC%95%E5%AF%BC%E5%A4%B1%E8%B4%A5(GUID%E7%A3%81%E7%9B%98)/">
+<link rel="canonical" href="http://example.com/posts/Install-CentOS7-with-bbr-and-Deluge/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/Mac%E4%BF%AE%E5%A4%8D%E5%BC%95%E5%AF%BC%E5%A4%B1%E8%B4%A5(GUID%E7%A3%81%E7%9B%98)/","path":"posts/Mac修复引导失败(GUID磁盘)/","title":"Mac修复引导失败(GUID磁盘)"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/Install-CentOS7-with-bbr-and-Deluge/","path":"posts/Install-CentOS7-with-bbr-and-Deluge/","title":"纯净CentOS 7 安装BBR+Deluge"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Mac修复引导失败(GUID磁盘) | Gamesme's Blog</title>
+<title>纯净CentOS 7 安装BBR+Deluge | Gamesme's Blog</title>
   
 
 
@@ -125,7 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%88%A0%E9%99%A4%E7%A9%BA%E7%9A%84%E5%88%86%E5%8C%BA%E4%B8%94%E4%B8%8D%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">第一步 删除空的分区且不格式化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E8%B0%83%E6%95%B4APFS-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%A4%A7%E5%B0%8F"><span class="nav-number">3.</span> <span class="nav-text">第二步 调整APFS 容器的大小</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%8E%9F%E7%89%88BBR"><span class="nav-number">1.</span> <span class="nav-text">安装原版BBR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Deluge%E5%B9%B6%E5%90%AF%E5%8A%A8WebUI"><span class="nav-number">2.</span> <span class="nav-text">安装Deluge并启动WebUI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Flexget"><span class="nav-number">3.</span> <span class="nav-text">安装Flexget</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -194,7 +189,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/posts/Mac%E4%BF%AE%E5%A4%8D%E5%BC%95%E5%AF%BC%E5%A4%B1%E8%B4%A5(GUID%E7%A3%81%E7%9B%98)/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/Install-CentOS7-with-bbr-and-Deluge/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -207,12 +202,12 @@
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Mac修复引导失败(GUID磁盘) | Gamesme's Blog">
+      <meta itemprop="name" content="纯净CentOS 7 安装BBR+Deluge | Gamesme's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Mac修复引导失败(GUID磁盘)
+          纯净CentOS 7 安装BBR+Deluge
         </h1>
 
         <div class="post-meta-container">
@@ -223,7 +218,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2019-04-08 04:26:00" itemprop="dateCreated datePublished" datetime="2019-04-08T04:26:00+08:00">2019-04-08</time>
+      <time title="创建时间：2019-04-13 07:57:00" itemprop="dateCreated datePublished" datetime="2019-04-13T07:57:00+08:00">2019-04-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -231,10 +226,18 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+          <a href="/categories/%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">分享</span></a>
         </span>
     </span>
 
+  
+    <span id="/posts/Install-CentOS7-with-bbr-and-Deluge/" class="post-meta-item twikoo_visitors" data-flag-title="纯净CentOS 7 安装BBR+Deluge" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="twikoo_visitors"></span>
+    </span>
   
 </div>
 
@@ -245,42 +248,57 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前装了一个 Deepin 系统发现没有必要，于是乎在磁盘管理直接把 Ext4分区格式化了想合并两个分区把SSD 变为一整块。</p>
+        <p>新撸了两台Hetzner的Dedicated Server拿来刷PT<br>并且想通过Appnode来管理<br>于是选择了安装CentOS 7<br>然后发现CentOS下居然没有Deluge<br>一番摸索于是有了这个教程</p>
 <span id="more"></span>
 
 
-<p>在网上下载了试用版的 Hard Disk Manager，一番操作无果，结果发现这个软件并不识别 APFS 格式的分区…</p>
-<p><img src="https://cdn.gamesme.cn/images/Mac-xiufu-boot-soft.png" alt="修复"></p>
-<p>(我没注意看…仅支持10.12的 Sierra 然而我用的是10.14的 Mojave)</p>
-<p>之后在网上找到了能合并APFS 容器命令的<a href="https://en.ihowto.tips/osx-apps-download-tutorials-tips-hacks-news/merge-apfs-containers-in-single-partition-macos-high-sierra-or-mojave.html" target="_blank" rel="noopener">教程</a></p>
-<h2 id="第一步-删除空的分区且不格式化"><a href="#第一步-删除空的分区且不格式化" class="headerlink" title="第一步 删除空的分区且不格式化"></a>第一步 删除空的分区且不格式化</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> diskutil eraseVolume <span class="token string">"Free Space"</span> %noformat% /dev/disk0s3<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<hr>
+<h2 id="安装原版BBR"><a href="#安装原版BBR" class="headerlink" title="安装原版BBR"></a>安装原版BBR</h2><p>首先升级内核</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#CentOS 7系统</span>
+<span class="token comment">#导入ELRepo公钥</span>
+<span class="token function">wget</span> https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+<span class="token function">rpm</span> --import RPM-GPG-KEY-elrepo.org
+<span class="token comment">#安装ELRepo</span>
+<span class="token function">rpm</span> -Uvh http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
+<span class="token comment">#升级最新内核</span>
+yum --enablerepo<span class="token operator">=</span>elrepo-kernel <span class="token function">install</span> kernel-ml -y
+<span class="token comment">#调整内核启动顺序</span>
+grub2-mkconfig -o /boot/grub2/grub.cfg <span class="token operator">&amp;&amp;</span> grub2-set-default <span class="token number">0</span>
+<span class="token comment">#重启</span>
+<span class="token function">reboot</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>重启之后启用BBR</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#查看最新内核，如果大于4.9，则进行下一步</span>
+<span class="token function">uname</span> -r
+<span class="token comment">#修改配置</span>
+<span class="token function">cat</span> <span class="token operator">>></span>/etc/sysctl.conf <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+net.core.default_qdisc=fq
+net.ipv4.tcp_congestion_control=bbr
+EOF</span>
+<span class="token comment">#使配置生效</span>
+sysctl -p
+<span class="token comment">#检查生效，输出带有tcp_bbr 20480  0即生效</span>
+lsmod <span class="token operator">|</span> <span class="token function">grep</span> bbr<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<h2 id="安装Deluge并启动WebUI"><a href="#安装Deluge并启动WebUI" class="headerlink" title="安装Deluge并启动WebUI"></a>安装Deluge并启动WebUI</h2><p>因为官方并无CentOS的Deluge包<br>于是使用第三方源安装（来自nux）</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+<span class="token function">rpm</span> -ivh nux-dextop-release-0-5.el7.nux.noarch.rpm
+yum -y <span class="token function">install</span> deluge-web<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>启动Deluge与WebUI</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">deluged
+deluge-web --fork<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p><img src="https://cdn.gamesme.cn/images/Mac-xiufu-boot-2.jpg"></p>
-<h2 id="第二步-调整APFS-容器的大小"><a href="#第二步-调整APFS-容器的大小" class="headerlink" title="第二步 调整APFS 容器的大小"></a>第二步 调整APFS 容器的大小</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">diskutil apfs resizeContainer disk0s2 <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<hr>
+<h2 id="安装Flexget"><a href="#安装Flexget" class="headerlink" title="安装Flexget"></a>安装Flexget</h2><p>安装pip与flexget</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> -y python-pip
+pip <span class="token function">install</span> --upgrade setuptools
+pip <span class="token function">install</span> flexget<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>将配置文件config.yml编辑好<code>/root/.config/flexget/config.yml</code><br>然后启动Flexget</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">flexget daemon start -d<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="https://cdn.gamesme.cn/images/Mac-xiufu-boot-3.jpg"></p>
-<p>但是当我进行第二步的时候，提示无法识别磁盘格式(Unknow Partition Format)</p>
-<p>一开始还不知道是什么问题，就用人生三大法则之一的</p>
+<p>到此为止 一台CentOS 7 系统的盒子就装好了</p>
 <blockquote>
-<p>重启试试</p>
+<p>BBR脚本来自 <a target="_blank" rel="noopener" href="https://www.moerats.com/archives/580/" title="萌鼠博客">萌鼠博客</a><br>Deluge 脚本来自 <a target="_blank" rel="noopener" href="https://www.vmvps.com/installing-deluge-and-deluge-web-on-centos-7.html" title="微魔部落">微魔部落</a></p>
 </blockquote>
-<p>我把电脑重启了…然后..就出现了带问号的文件夹…</p>
-<p>MacOS 的引导丢失了…</p>
-<p>还好手头有 PE..尝试修复引导无果..</p>
-<p>然后使用 DiskGenius 发现系统分区的 分区类型GUID 变成了</p>
-<p>FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF</p>
-<p><img src="https://cdn.gamesme.cn/images/Mac-xiufu-boot-3.jpg"></p>
-<p>(图中红框的那个东西)</p>
-<p>一番百度，最后找到了<a href="https://bbs.feng.com/read-htm-tid-7296511.html" target="_blank" rel="noopener">这个教程</a></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">list disk 
-<span class="token keyword">select</span> disk <span class="token number">0</span> 
-list partition 
-<span class="token keyword">select</span> partition <span class="token number">2</span> 
-<span class="token builtin class-name">set</span> <span class="token assign-left variable">id</span><span class="token operator">=</span>7C3457EF-0000-11AA-AA11-00306543ECAC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>使用 PE 启动后，打开命令提示符输入以上的命令就解决了(磁盘位置根据实际情况填写)</p>
-<p><img src="https://cdn.gamesme.cn/images/MAc-xiufu-boot-4.jpg"></p>
-<p>最后重启，熟悉的Apple Logo 出现了。</p>
 
     </div>
 
@@ -331,7 +349,7 @@ list partition
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://example.com/posts/Mac%E4%BF%AE%E5%A4%8D%E5%BC%95%E5%AF%BC%E5%A4%B1%E8%B4%A5(GUID%E7%A3%81%E7%9B%98)/" title="Mac修复引导失败(GUID磁盘)">http://example.com/posts/Mac修复引导失败(GUID磁盘)/</a>
+      <a href="http://example.com/posts/Install-CentOS7-with-bbr-and-Deluge/" title="纯净CentOS 7 安装BBR+Deluge">http://example.com/posts/Install-CentOS7-with-bbr-and-Deluge/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -340,17 +358,21 @@ list partition
 </div>
 
           <div class="post-tags">
-              <a href="/tags/MacOS/" rel="tag"># MacOS</a>
+              <a href="/tags/%E5%8E%9F%E5%88%9B/" rel="tag"># 原创</a>
+              <a href="/tags/CentOS/" rel="tag"># CentOS</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/posts/Solution-for-new-user-uid-is-occupied-in-Discuz/" rel="prev" title="Discuz新用户注册UID被占用解决办法">
+                  <i class="fa fa-chevron-left"></i> Discuz新用户注册UID被占用解决办法
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/Discuz%E6%96%B0%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8CUID%E8%A2%AB%E5%8D%A0%E7%94%A8%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" rel="next" title="Discuz新用户注册UID被占用解决办法">
-                  Discuz新用户注册UID被占用解决办法 <i class="fa fa-chevron-right"></i>
+                <a href="/posts/Beian-from-scratch/" rel="next" title="ICP备案-从入门到放弃">
+                  ICP备案-从入门到放弃 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -363,6 +385,7 @@ list partition
 
 
 
+    <div class="comments"><div id="twikoo-comments"></div></div>
 </div>
   </main>
 
@@ -402,6 +425,27 @@ list partition
 
 
 
+<script class="next-config" data-name="twikoo" type="application/json">{"enable":true,"visitor":true,"envId":"gamesme-cn-3goz8ve9b53b5ace","region":"ap-guangzhou","el":"#twikoo-comments"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.twikoo.el)
+    .then(() => NexT.utils.getScript(
+      CONFIG.twikoo.jsUrl || 'https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js',
+      { condition: window.twikoo }
+    ))
+    .then(() => {
+      twikoo.init(CONFIG.twikoo);
+    });
+});
+</script>
+<style>
+.post-block, .comments {
+  overflow: visible;
+}
+.tk-owo-emotion {
+  display: inline-block;
+}
+</style>
 
 </body>
 </html>

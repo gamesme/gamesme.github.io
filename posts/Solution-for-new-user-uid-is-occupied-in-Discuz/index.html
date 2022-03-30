@@ -20,28 +20,33 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="前言Tiny Tiny RSS（也可简称TT-RSS） 项目主页： https:&#x2F;&#x2F;tt-rss.org&#x2F;">
+    <meta name="description" content="前言群里有位大佬的Discuz论坛搬家了文件和数据库都原封不动的导入但是注册新用户时 居然提示 UIDXXX被占用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建自己的RSS服务">
-<meta property="og:url" content="http://example.com/posts/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84RSS%E6%9C%8D%E5%8A%A1/index.html">
+<meta property="og:title" content="Discuz新用户注册UID被占用解决办法">
+<meta property="og:url" content="http://example.com/posts/Solution-for-new-user-uid-is-occupied-in-Discuz/index.html">
 <meta property="og:site_name" content="Gamesme&#39;s Blog">
-<meta property="og:description" content="前言Tiny Tiny RSS（也可简称TT-RSS） 项目主页： https:&#x2F;&#x2F;tt-rss.org&#x2F;">
+<meta property="og:description" content="前言群里有位大佬的Discuz论坛搬家了文件和数据库都原封不动的导入但是注册新用户时 居然提示 UIDXXX被占用">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-06-11T02:11:00.000Z">
-<meta property="article:modified_time" content="2019-06-11T02:11:00.000Z">
+<meta property="og:image" content="https://i.loli.net/2019/04/09/5cac4b18cac34.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/09/5cac4c8c4e5c5.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/09/5cac4b186feed.png">
+<meta property="article:published_time" content="2019-04-08T23:15:00.000Z">
+<meta property="article:modified_time" content="2019-04-08T23:15:00.000Z">
 <meta property="article:author" content="Gamesme">
 <meta property="article:tag" content="原创">
+<meta property="article:tag" content="discuz">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2019/04/09/5cac4b18cac34.png">
 
 
-<link rel="canonical" href="http://example.com/posts/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84RSS%E6%9C%8D%E5%8A%A1/">
+<link rel="canonical" href="http://example.com/posts/Solution-for-new-user-uid-is-occupied-in-Discuz/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84RSS%E6%9C%8D%E5%8A%A1/","path":"posts/搭建自己的RSS服务/","title":"搭建自己的RSS服务"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/Solution-for-new-user-uid-is-occupied-in-Discuz/","path":"posts/Solution-for-new-user-uid-is-occupied-in-Discuz/","title":"Discuz新用户注册UID被占用解决办法"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>搭建自己的RSS服务 | Gamesme's Blog</title>
+<title>Discuz新用户注册UID被占用解决办法 | Gamesme's Blog</title>
   
 
 
@@ -119,7 +124,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E9%83%A8%E7%BD%B2"><span class="nav-number">2.</span> <span class="nav-text">开始部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%90%8E%E7%AB%AF"><span class="nav-number">3.</span> <span class="nav-text">配置后端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.1.</span> <span class="nav-text">设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">安装主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%93%E5%B1%95"><span class="nav-number">4.1.</span> <span class="nav-text">拓展</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-%E9%80%82%E7%94%A8%E4%BA%8EUCenter%E6%95%B0%E6%8D%AE%E5%BA%93%E5%86%85%E4%B8%8D%E5%90%ABDiscuz%E7%9A%84Members%E6%95%B0%E6%8D%AE%EF%BC%88%E6%88%96%E4%B8%8D%E4%B8%80%E8%87%B4%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">解决方法 - 适用于UCenter数据库内不含Discuz的Members数据（或不一致）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-%E9%80%82%E7%94%A8%E4%BA%8E%E8%A1%A8%E5%89%8D%E7%BC%80%E4%B8%8E%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%8D%E5%90%8C"><span class="nav-number">3.</span> <span class="nav-text">解决方法 - 适用于表前缀与配置文件不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-%E9%80%82%E7%94%A8%E4%BA%8E%E8%A1%A8%E5%89%8D%E7%BC%80%E4%B8%8E%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B8%E5%90%8C-%E4%B8%94UC%E5%92%8CDiscuz%E4%B8%ADMembers%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4"><span class="nav-number">4.</span> <span class="nav-text">解决方法 - 适用于表前缀与配置文件相同 且UC和Discuz中Members数据一致</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -188,7 +193,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/posts/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84RSS%E6%9C%8D%E5%8A%A1/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/Solution-for-new-user-uid-is-occupied-in-Discuz/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -201,12 +206,12 @@
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="搭建自己的RSS服务 | Gamesme's Blog">
+      <meta itemprop="name" content="Discuz新用户注册UID被占用解决办法 | Gamesme's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          搭建自己的RSS服务
+          Discuz新用户注册UID被占用解决办法
         </h1>
 
         <div class="post-meta-container">
@@ -217,7 +222,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2019-06-11 10:11:00" itemprop="dateCreated datePublished" datetime="2019-06-11T10:11:00+08:00">2019-06-11</time>
+      <time title="创建时间：2019-04-09 07:15:00" itemprop="dateCreated datePublished" datetime="2019-04-09T07:15:00+08:00">2019-04-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -225,10 +230,18 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+          <a href="/categories/%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">分享</span></a>
         </span>
     </span>
 
+  
+    <span id="/posts/Solution-for-new-user-uid-is-occupied-in-Discuz/" class="post-meta-item twikoo_visitors" data-flag-title="Discuz新用户注册UID被占用解决办法" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="twikoo_visitors"></span>
+    </span>
   
 </div>
 
@@ -239,55 +252,23 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Tiny Tiny RSS（也可简称TT-RSS）</p>
-<p>项目主页： <a target="_blank" rel="noopener" href="https://tt-rss.org/">https://tt-rss.org/</a></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>群里有位大佬的Discuz论坛搬家了<br>文件和数据库都原封不动的导入<br>但是注册新用户时 居然提示 UIDXXX被占用</p>
 <span id="more"></span>
 
-
-<p>优点&#x2F;特性：</p>
-<ol>
-<li>可自定义同步间隔；</li>
-<li>订阅源管理便捷、支持导入OPML；</li>
-<li>可自定过滤规则；</li>
-<li>安装主题&#x2F;插件非常简单；</li>
-<li>最重要的：目前仍处于比较活跃的开发中</li>
-</ol>
-<h2 id="开始部署"><a href="#开始部署" class="headerlink" title="开始部署"></a>开始部署</h2><p>环境要求<br>PHP 5.4 或以上；<br>PostgreSQL（9.1 或以上）或者 MySQL（必须支持InnoDB, TT-RSS不支持MyISAM）；</p>
-<p>官方部署文档<br><a target="_blank" rel="noopener" href="https://git.tt-rss.org/git/tt-rss/wiki/InstallationNotes">https://git.tt-rss.org/git/tt-rss/wiki/InstallationNotes</a></p>
-<p>下载程序并开始安装<br>在想要安装TT-RSS的网站根目录，执行git clone:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://tt-rss.org/git/tt-rss.git <span class="token builtin class-name">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>访问TT-RSS安装程序：</p>
-<p><a target="_blank" rel="noopener" href="http://yoursite/tt-rss/install/">http://yoursite/tt-rss/install/</a><br>你会看到如下的安装界面：</p>
-<p>填写完成后就会自动生成config.php的代码，你可以选择由安装程序自动生成config.php文件，或者自己复制后手动生成config.php文件。</p>
-<p>对于该文件，通常我们不需要进行额外的参数设置，不过如果你需要加入邮件提醒、用户注册等功能，可以参考其中的注释，自己进行参数设置。</p>
-<p>至此，TT-RSS其实已经安装完成了！</p>
-<h2 id="配置后端"><a href="#配置后端" class="headerlink" title="配置后端"></a>配置后端</h2><blockquote>
-<p>官方文档：<a target="_blank" rel="noopener" href="https://git.tt-rss.org/git/tt-rss/wiki/UpdatingFeeds">https://git.tt-rss.org/git/tt-rss/wiki/UpdatingFeeds</a></p>
-</blockquote>
-<p>在这里，我采用了第二种方法，即crontab的方式。<br>这里需要注意的是更新脚本文件update.php或update_daemon2.php不能由root用户来执行，可以通过apache或者Nginx的运行用户来执行，如apache或者www等。<br>比如我们为www用户加入crontab</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">crontab -u www -e<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>添加如下内容：</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">*/30 * * * * /usr/local/php/bin/php /data/wwwroot/安装TT-RSS的目录/update.php --feeds --quiet<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>需要注意：<br>上方的&#x2F;usr&#x2F;local&#x2F;php&#x2F;bin&#x2F;php也可能为&#x2F;usr&#x2F;bin&#x2F;php，具体以你实际为准；<br>同时也要注意上文提到的config.php中的路径需与上面统一；</p>
-<blockquote>
-<p>*&#x2F;30 代表每30分钟执行一次更新，你也可以按自己需求设定其他间隔。</p>
-</blockquote>
-<h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><p>以上完成后，我们像正常访问网站一样打开TT-RSS，默认账户密码:</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">username: admin, password: password<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>首次登录后请及时修改密码。同时建议创建新的使用者账户作为日常使用，与管理员账户隔开。</p>
-<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>Tiny Tiny RSS安装主题非常简单，只需将CSS文件放入themes目录下，并在后台进行选择即可。<br>目前看到仿Feedly和仿Google Reader的这两款主题比较受到大家欢迎:</p>
-<p>tt-rss-feedly-theme<br><a target="_blank" rel="noopener" href="https://github.com/levito/tt-rss-feedly-theme">https://github.com/levito/tt-rss-feedly-theme</a><br>clean-greader<br><a target="_blank" rel="noopener" href="https://github.com/naeramarth7/clean-greader">https://github.com/naeramarth7/clean-greader</a><br>以安装tt-rss-feedly-theme为例，先下载主题：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://github.com/levito/tt-rss-feedly-theme/archive/master.zip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>解压缩：</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">unzip master.zip
-#复制主题至themes子目录
-cp tt-rss-feedly-theme-master&#x2F;feedly.css &#x2F;themes
-cp tt-rss-feedly-theme-master&#x2F;feedly &#x2F;themes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>而后我们至后台启用即可。</p>
-<h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><p>以下拓展的解释来自：<a target="_blank" rel="noopener" href="http://ju.outofmemory.cn/entry/39790">http://ju.outofmemory.cn/entry/39790</a></p>
-<blockquote>
-<p>af_unburn:解决feedburner等rss链接跳转;<br>bookmarklets:在设置-信息源生成bookmarklets标签;<br>embed_original:图标插件，点击图标会显示文章原始内容，而不是rss;<br>fever:模拟fever api，在设置-Fver<br>Emulation，设置好密码，可以和tt-rss的登录密码不同，然后就能支持fever的客户端比如reeder、Mr. Reader;<br>ff_feedcleaner:feed广告过滤，在设置标签生成FeecCleaner标签，过滤规则要用正则表达式，比较复杂;<br>googlereaderkeys:模拟google reader快捷键，如J、K等;<br>import_export:在设置-信息源，导入导出配置;<br>mail:图标插件，点击通过邮件分享;<br>mark_button:文章右下角能够快速将文章标记为已读未读;<br>mobilize:图标插件，点击显示readability简化的页面；<br>note:图标插件；<br>nsfw:根据标签隐藏文章内容；<br>share:图标插件，点击生成唯一的url方便分享；<br>swap_jk:添加j、k快捷键，类似vim</p>
-</blockquote>
+<p><img src="https://i.loli.net/2019/04/09/5cac4b18cac34.png" alt="1"><br>只好借助万能的百度</p>
+<hr>
+<h2 id="解决方法-适用于UCenter数据库内不含Discuz的Members数据（或不一致）"><a href="#解决方法-适用于UCenter数据库内不含Discuz的Members数据（或不一致）" class="headerlink" title="解决方法 - 适用于UCenter数据库内不含Discuz的Members数据（或不一致）"></a>解决方法 - 适用于UCenter数据库内不含Discuz的Members数据（或不一致）</h2><p>请在数据库中执行以下sql查询语句</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token identifier"><span class="token punctuation">`</span>pre_ucenter_members<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
+<span class="token identifier"><span class="token punctuation">`</span>uid<span class="token punctuation">`</span></span> <span class="token punctuation">,</span>
+<span class="token identifier"><span class="token punctuation">`</span>username<span class="token punctuation">`</span></span> <span class="token punctuation">,</span>
+<span class="token identifier"><span class="token punctuation">`</span>email<span class="token punctuation">`</span></span> 
+<span class="token punctuation">)</span> 
+<span class="token keyword">SELECT</span> <span class="token identifier"><span class="token punctuation">`</span>uid<span class="token punctuation">`</span></span><span class="token punctuation">,</span><span class="token identifier"><span class="token punctuation">`</span>username<span class="token punctuation">`</span></span><span class="token punctuation">,</span><span class="token identifier"><span class="token punctuation">`</span>email<span class="token punctuation">`</span></span> <span class="token keyword">FROM</span> <span class="token identifier"><span class="token punctuation">`</span>pre_common_member<span class="token punctuation">`</span></span> <span class="token keyword">WHERE</span> uid<span class="token operator">></span><span class="token number">2</span> <span class="token operator">AND</span> uid<span class="token operator">&lt;</span><span class="token number">31312</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>对应的表名请根据实际情况修改<br><code>INSERT</code>（插入）可改为<code>REPLACE</code>（替换）以解决对应UID已在数据表中存在的问题<br><code>pre_ucenter_members</code>为UCenter用户数据表<br><code>pre_common_member</code>为Discuz用户数据表<br><code>WHERE uid&gt;2 AND uid&lt;31312</code>为用户UID范围<br><img src="https://i.loli.net/2019/04/09/5cac4c8c4e5c5.png" alt="2"></p>
+<hr>
+<h2 id="解决方法-适用于表前缀与配置文件不同"><a href="#解决方法-适用于表前缀与配置文件不同" class="headerlink" title="解决方法 - 适用于表前缀与配置文件不同"></a>解决方法 - 适用于表前缀与配置文件不同</h2><p>修改对应config的前缀为数据库中相应前缀</p>
+<hr>
+<h2 id="解决方法-适用于表前缀与配置文件相同-且UC和Discuz中Members数据一致"><a href="#解决方法-适用于表前缀与配置文件相同-且UC和Discuz中Members数据一致" class="headerlink" title="解决方法 - 适用于表前缀与配置文件相同 且UC和Discuz中Members数据一致"></a>解决方法 - 适用于表前缀与配置文件相同 且UC和Discuz中Members数据一致</h2><p>经过一番探查<br>发现config_*.php中的数据表前缀与数据库相同<br>且UCenter 与 Discuz 的用户数据表内容一致<br>于是乎打开两个数据表中的uid键值 -&gt; 操作 选项卡<br>找到Auto_INCREMENT（自增） 修改为大于最大UID即可正常进行注册了<br><img src="https://i.loli.net/2019/04/09/5cac4b186feed.png" alt="3"></p>
 
     </div>
 
@@ -338,7 +319,7 @@ cp tt-rss-feedly-theme-master&#x2F;feedly &#x2F;themes<span aria-hidden="true" c
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://example.com/posts/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84RSS%E6%9C%8D%E5%8A%A1/" title="搭建自己的RSS服务">http://example.com/posts/搭建自己的RSS服务/</a>
+      <a href="http://example.com/posts/Solution-for-new-user-uid-is-occupied-in-Discuz/" title="Discuz新用户注册UID被占用解决办法">http://example.com/posts/Solution-for-new-user-uid-is-occupied-in-Discuz/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -348,19 +329,20 @@ cp tt-rss-feedly-theme-master&#x2F;feedly &#x2F;themes<span aria-hidden="true" c
 
           <div class="post-tags">
               <a href="/tags/%E5%8E%9F%E5%88%9B/" rel="tag"># 原创</a>
+              <a href="/tags/discuz/" rel="tag"># discuz</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/ICP%E5%A4%87%E6%A1%88-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/" rel="prev" title="ICP备案-从入门到放弃">
-                  <i class="fa fa-chevron-left"></i> ICP备案-从入门到放弃
+                <a href="/posts/Fix-partitions-GUID-in-macOS/" rel="prev" title="Mac修复引导失败(GUID磁盘)">
+                  <i class="fa fa-chevron-left"></i> Mac修复引导失败(GUID磁盘)
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/Mac%E8%BF%85%E9%9B%B7%E6%89%8B%E5%8A%A8%E7%B2%BE%E7%AE%80%E6%8F%92%E4%BB%B6/" rel="next" title="Mac迅雷手动精简插件">
-                  Mac迅雷手动精简插件 <i class="fa fa-chevron-right"></i>
+                <a href="/posts/Install-CentOS7-with-bbr-and-Deluge/" rel="next" title="纯净CentOS 7 安装BBR+Deluge">
+                  纯净CentOS 7 安装BBR+Deluge <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -373,6 +355,7 @@ cp tt-rss-feedly-theme-master&#x2F;feedly &#x2F;themes<span aria-hidden="true" c
 
 
 
+    <div class="comments"><div id="twikoo-comments"></div></div>
 </div>
   </main>
 
@@ -412,6 +395,27 @@ cp tt-rss-feedly-theme-master&#x2F;feedly &#x2F;themes<span aria-hidden="true" c
 
 
 
+<script class="next-config" data-name="twikoo" type="application/json">{"enable":true,"visitor":true,"envId":"gamesme-cn-3goz8ve9b53b5ace","region":"ap-guangzhou","el":"#twikoo-comments"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.twikoo.el)
+    .then(() => NexT.utils.getScript(
+      CONFIG.twikoo.jsUrl || 'https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js',
+      { condition: window.twikoo }
+    ))
+    .then(() => {
+      twikoo.init(CONFIG.twikoo);
+    });
+});
+</script>
+<style>
+.post-block, .comments {
+  overflow: visible;
+}
+.tk-owo-emotion {
+  display: inline-block;
+}
+</style>
 
 </body>
 </html>
