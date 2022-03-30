@@ -2,7 +2,7 @@ name: Tecent Cloudbase
 on:
   push:
     branches:
-      - main  # default branch
+      - main # default branch
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -16,3 +16,4 @@ jobs:
           secretId: ${{secrets.secretId}}
           secretKey: ${{secrets.secretKey}}
           envId: ${{secrets.envId}}
+          staticSrcPath: public
