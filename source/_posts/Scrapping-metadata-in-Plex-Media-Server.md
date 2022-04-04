@@ -1,6 +1,7 @@
+---
 title: Plex刮削正确姿势
-categories: 分享
-tags: [原创]
+categories: 笔记
+tags: [NAS,Plex]
 date: 2021-07-01 15:54:00
 ---
 

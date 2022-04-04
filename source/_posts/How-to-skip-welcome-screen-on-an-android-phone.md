@@ -1,3 +1,4 @@
+---
 title: 如何跳过Google开机设置/验证/向导
 categories: 分享
 tags: [Android]
@@ -7,10 +8,7 @@ post_link : https://www.himiku.com/archives/6.html
 ---
 ## 前言
 Google 的开机设置向导对刷机党来说最是熟悉不过了。
-
 在刷好 ROM（原生、类原生），刷过 Gapps 后，开机就一定需要进行 Google 验证。
-
-
 <!--more-->
 
 

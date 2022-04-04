@@ -1,6 +1,7 @@
+---
 title: Mac迅雷手动精简插件
 categories: 分享
-tags: [MacOS]
+tags: [macOS]
 date: 2019-07-16 06:18:00
 ---
 ## 前言
@@ -40,8 +41,6 @@ livestream （直播）
 需要使用内置的字幕下载功能的，请保留 ```subtitle``` 插件，不需要的可以删除； 
 需要搭配浏览器使用的，请保留 ```browserhelper``` 插件，不需要的可以删除； 
 下载宝（或玩客云）用户请保留 ```onethingcloud``` 插件，不需要的可以删除。
-
-（文中部分内容摘录于V2EX）
 
 ##效果图
 ![精简后的Mac迅雷](https://cdn.gamesme.cn/images/xl.png)

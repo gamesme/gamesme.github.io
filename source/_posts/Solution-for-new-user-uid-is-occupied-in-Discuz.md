@@ -1,6 +1,7 @@
+---
 title: Discuz新用户注册UID被占用解决办法
 categories: 分享
-tags: [原创,discuz]
+tags: [discuz]
 date: 2019-04-09 07:15:00
 ---
 ## 前言

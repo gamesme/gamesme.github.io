@@ -2,7 +2,7 @@
 title: 从typecho迁移至Hexo
 date: 2020-03-28 21:14:58
 updated: 2021-03-03 20:00:00
-tags: [Hexo,Typecho,原创]
+tags: [Hexo,Typecho]
 categories: 笔记
 ---
 ## 前言

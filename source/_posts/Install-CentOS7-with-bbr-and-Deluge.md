@@ -1,8 +1,10 @@
+---
 title: 纯净CentOS 7 安装BBR+Deluge
-categories: 分享
-tags: [原创,CentOS]
+categories: 笔记
+tags: [CentOS,Deluge]
 date: 2019-04-13 07:57:00
 ---
+## 前言
 新撸了两台Hetzner的Dedicated Server拿来刷PT
 并且想通过Appnode来管理
 于是选择了安装CentOS 7

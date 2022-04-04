@@ -1,6 +1,7 @@
+---
 title: 搭建自己的RSS服务
 categories: 笔记
-tags: [原创]
+tags: [RSS]
 date: 2019-06-11 10:11:00
 ---
 ## 前言
@@ -115,7 +116,6 @@ note:图标插件；
 nsfw:根据标签隐藏文章内容；
 share:图标插件，点击生成唯一的url方便分享；
 swap_jk:添加j、k快捷键，类似vim
-
 
 
 
