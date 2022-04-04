@@ -961,6 +961,7 @@ pre code {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index: 5;
 }
 @media (max-width: 413px) {
   .post-body .tabs ul.nav-tabs,
@@ -1601,7 +1602,7 @@ pre code {
   width: 100%;
 }
 .with-love {
-  color: #f00;
+  color: #fff;
   display: inline-block;
   margin: 0 5px;
 }
