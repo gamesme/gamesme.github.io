@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Gamesme's Blog
-subtitle: ''
+title: Gamesme
+subtitle: '折腾记录 TL;DR'
 description: ''
 keywords:
 author: Gamesme
@@ -13,7 +13,7 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://gamesme.cn
 permalink: posts/:title/
 permalink_defaults:
 pretty_urls:
@@ -63,7 +63,7 @@ prismjs:
 index_generator:
   path: ''
   per_page: 5
-  order_by: -date
+  order_by: -updated
 
 # Category & Tag
 default_category: uncategorized
