@@ -7,7 +7,7 @@ toc :
 ---
 ## Changelogs
 
-* 20220404 Theme upgrade to v8.11.0, audit footer
+* 20220404 Theme upgrade to v8.11.0, fix footer script
 * 20220314 Theme upgrade to v8.10.4, deploy to Cloudbase
 * 20210701 Theme upgrade to v6.13.1
 * TBD

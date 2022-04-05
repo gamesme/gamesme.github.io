@@ -24,11 +24,12 @@
     }
     setInterval("createtime()",250);
     const d = document.domain;
-    if (d === 'localhost:4000' || d === '127.0.0.1:4000') {
+    if (d === 'localhost' || d === '127.0.0.1') {
+        const b = document.getElementsByClassName('powered-by')[0];
         b.innerHTML = '当前为 <a href="http://localhost:4000/" class="exturl" title="Localhost → http://localhost:4000/" target="_blank">Local Server</a> 开发运行';
     }
     else
-        if(d !== 'www.gamesme.cn' || d !== 'gamesme.cn'){
+        if(d !== 'www.gamesme.cn' && d !== 'gamesme.cn'){
         (function() {
             const a = document.getElementsByClassName('beian')[0];
             a.remove();
