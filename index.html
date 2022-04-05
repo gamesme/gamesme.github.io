@@ -644,27 +644,45 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Gamesme</span>
 </div><div class="powered-by">
-    由 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a target="_blank" rel="noopener" href="https://theme-next.js.org/">Next</a> 驱动 部署于 <a href="https://www.cloudbase.net/" class="exturl" title="Tencent Cloudbase → https://www.cloudbase.net/" target="_blank">Tencent Cloudbase</a>
+    由 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a target="_blank" rel="noopener" href="https://theme-next.js.org/">Next</a> 驱动 部署于 <a href="https://www.cloudbase.net/" class="exturl" title="Tencent Cloudbase → https://www.cloudbase.net/" target="_blank">Cloudbase</a>
 </div>
-<!--Begin 添加网站运行时间 -->
-<div><span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span></div>
+<div><span id="timeDate"></span><span id="times"></span></div>
 <script>
-    var now = new Date();
+    const now = new Date();
+
     function createtime() {
-        var grt= new Date("09/04/2019 17:38:38");//在此处修改你的建站时间
+        const grt = new Date("09/04/2019 17:38:38");//在此处修改你的建站时间
         now.setTime(now.getTime()+250);
-        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
-        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
-        if(String(hnum).length ===1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
-        mnum = Math.floor(minutes); if(String(mnum).length ===1 ){mnum = "0" + mnum;}
-        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-        snum = Math.round(seconds); if(String(snum).length ===1 ){snum = "0" + snum;}
+        const days = (now - grt) / 1000 / 60 / 60 / 24;
+        const dnum = Math.floor(days);
+        const hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        let hnum = Math.floor(hours);
+        if(String(hnum).length ===1 ){hnum = "0" + hnum;}
+        const minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        let mnum = Math.floor(minutes);
+        if(String(mnum).length ===1 ){mnum = "0" + mnum;}
+        const seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        let snum = Math.round(seconds);
+        if(String(snum).length ===1 ){snum = "0" + snum;}
         document.getElementById("timeDate").innerHTML = "已运行 "+dnum+" 天 ";
         document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
     }
     setInterval("createtime()",250);
+    const d = document.domain;
+    if (d === 'localhost:4000' || d === '127.0.0.1:4000') {
+        b.innerHTML = '当前为 <a href="http://localhost:4000/" class="exturl" title="Localhost → http://localhost:4000/" target="_blank">Local Server</a> 开发运行';
+    }
+    else
+        if(d !== 'www.gamesme.cn' || d !== 'gamesme.cn'){
+        (function() {
+            const a = document.getElementsByClassName('beian')[0];
+            a.remove();
+            const b = document.getElementsByClassName('powered-by')[0];
+            b.innerHTML = '由 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a target="_blank" rel="noopener" href="https://theme-next.js.org/">Next</a> 驱动 部署于 <a href="https://pages.github.com/" class="exturl" title="Github Pages → https://pages.github.com/" target="_blank">Github Pages</a>';
+        })();
+    }
 </script>
-<!-- End 添加网站运行时间 -->
+
 
 
     </div>
