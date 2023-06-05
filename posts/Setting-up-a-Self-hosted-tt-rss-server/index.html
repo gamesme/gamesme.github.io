@@ -248,7 +248,7 @@
 <p>官方文档：<a target="_blank" rel="noopener" href="https://git.tt-rss.org/git/tt-rss/wiki/UpdatingFeeds">https://git.tt-rss.org/git/tt-rss/wiki/UpdatingFeeds</a></p>
 </blockquote>
 <p>在这里，我采用了第二种方法，即crontab的方式。<br>这里需要注意的是更新脚本文件update.php或update_daemon2.php不能由root用户来执行，可以通过apache或者Nginx的运行用户来执行，如apache或者www等。<br>比如我们为www用户加入crontab</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">crontab -u www -e<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">crontab</span> <span class="token parameter variable">-u</span> www <span class="token parameter variable">-e</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>添加如下内容：</p>
 <pre class="line-numbers language-text" data-language="text"><code class="language-text">*/30 * * * * /usr/local/php/bin/php /data/wwwroot/安装TT-RSS的目录/update.php --feeds --quiet<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>需要注意：<br>上方的&#x2F;usr&#x2F;local&#x2F;php&#x2F;bin&#x2F;php也可能为&#x2F;usr&#x2F;bin&#x2F;php，具体以你实际为准；<br>同时也要注意上文提到的config.php中的路径需与上面统一；</p>
@@ -262,10 +262,10 @@
 <p>tt-rss-feedly-theme<br><a target="_blank" rel="noopener" href="https://github.com/levito/tt-rss-feedly-theme">https://github.com/levito/tt-rss-feedly-theme</a><br>clean-greader<br><a target="_blank" rel="noopener" href="https://github.com/naeramarth7/clean-greader">https://github.com/naeramarth7/clean-greader</a><br>以安装tt-rss-feedly-theme为例，先下载主题：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://github.com/levito/tt-rss-feedly-theme/archive/master.zip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>解压缩：</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">unzip master.zip
-#复制主题至themes子目录
-cp tt-rss-feedly-theme-master&#x2F;feedly.css &#x2F;themes
-cp tt-rss-feedly-theme-master&#x2F;feedly &#x2F;themes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">unzip</span> master.zip
+<span class="token comment">#复制主题至themes子目录</span>
+<span class="token function">cp</span> tt-rss-feedly-theme-master/feedly.css /themes
+<span class="token function">cp</span> tt-rss-feedly-theme-master/feedly /themes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>而后我们至后台启用即可。</p>
 <h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><p>以下拓展的解释来自：<a target="_blank" rel="noopener" href="http://ju.outofmemory.cn/entry/39790">http://ju.outofmemory.cn/entry/39790</a></p>
 <blockquote>

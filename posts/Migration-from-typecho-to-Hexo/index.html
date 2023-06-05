@@ -279,24 +279,24 @@ date: <span class="token interpolation"><span class="token punctuation">&#123;</
 <span class="token punctuation">&#125;</span>
 <span class="token variable">$db</span><span class="token operator">-></span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>将代码复制下来，简单修改一下数据库连接信息保存为converter.php。之后在保存的目录执行以下命令，你就可以看到目录下导出的.md文档。</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">php converter.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">php converter.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>得到这些.md文档后只需要放到Hexo的source&#x2F;_post目录下即可。</p>
 <h2 id="在本地安装Hexo"><a href="#在本地安装Hexo" class="headerlink" title="在本地安装Hexo"></a>在本地安装Hexo</h2><h3 id="安装Hexo-cli"><a href="#安装Hexo-cli" class="headerlink" title="安装Hexo-cli"></a>安装Hexo-cli</h3><blockquote>
 <p>在开始安装hexo-cli之前要确保npm已安装且node.js版本符合要求</p>
 </blockquote>
 <p>执行以下命令就可以全局安装hexo-cli</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">npm install hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="新建博客并下载主题"><a href="#新建博客并下载主题" class="headerlink" title="新建博客并下载主题"></a>新建博客并下载主题</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">hexo init blog
-cd blog
-npm install
-git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-cli <span class="token parameter variable">-g</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="新建博客并下载主题"><a href="#新建博客并下载主题" class="headerlink" title="新建博客并下载主题"></a>新建博客并下载主题</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo init blog
+<span class="token builtin class-name">cd</span> blog
+<span class="token function">npm</span> <span class="token function">install</span>
+<span class="token function">git</span> clone https://github.com/theme-next/hexo-theme-next themes/next<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>然后在博客配置文件 _config.yml 将主题更改为 next 即可</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">theme</span><span class="token punctuation">:</span> next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>执行<code>hexo s</code>可以在本地预览网站</p>
 <h2 id="部署至腾讯云COS"><a href="#部署至腾讯云COS" class="headerlink" title="部署至腾讯云COS"></a>部署至腾讯云COS</h2><p>腾讯云COS是腾讯云的对象储存服务，其中就有一个静态网站功能可以将COS作为一个服务器来存放静态网站。<br>使用COS的好处是可以一条命令即可部署，且可以在COS上套上CDN加速网站整站访问。<br><strong>当然，要使用腾讯云的大陆CDN服务还需要一个已经备案的域名。</strong></p>
 <h3 id="创建储存桶"><a href="#创建储存桶" class="headerlink" title="创建储存桶"></a>创建储存桶</h3><p>创建一个储存桶，访问权限选择<strong>公有读私有写</strong><br><img src="https://cdn.gamesme.cn/2020/03/28/15854034045381.jpg" alt="-w698"><br>然后在基础设置里启用<strong>静态网站</strong><br><img src="https://cdn.gamesme.cn/2020/03/28/15854035485319.jpg" alt="-w492"><br>在自定义域名中设置自己的域名<br>这样储存桶就创建好了</p>
 <h3 id="配置Hexo部署服务"><a href="#配置Hexo部署服务" class="headerlink" title="配置Hexo部署服务"></a>配置Hexo部署服务</h3><p>将Hexo部署至腾讯云COS需要一个插件<br>在博客根目录下执行</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">npm install hexo-deployer-cos --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-cos <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>然后编辑 _config.yml 下的 Deployment 设置</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
 <span class="token punctuation">-</span> <span class="token key atrule">type</span><span class="token punctuation">:</span> qcloud<span class="token punctuation">-</span>cos
@@ -306,8 +306,8 @@ git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next them
   <span class="token key atrule">cosBucket</span><span class="token punctuation">:</span> &lt;Bucket<span class="token punctuation">-</span>name<span class="token punctuation">></span>
   <span class="token key atrule">cosAppid</span><span class="token punctuation">:</span>  &lt;Appid<span class="token punctuation">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>如此设置完成，以后部署只需要运行以下命令就能轻松将网站一键部署到COS</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">hexo clean
-hexo g -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean
+hexo g <span class="token parameter variable">-d</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
     </div>

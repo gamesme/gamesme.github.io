@@ -292,7 +292,7 @@ MAIL_ENCRYPTION&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">## macOS x86</span>
 pecl <span class="token function">install</span> xdebug
 <span class="token comment">## Apple Silicon</span>
-arch -x86_64 <span class="token function">sudo</span> pecl <span class="token function">install</span> xdebug<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+arch <span class="token parameter variable">-x86_64</span> <span class="token function">sudo</span> pecl <span class="token function">install</span> xdebug<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>pecl会自动下载源码编译，并加载到<code>php.ini</code></p>
 <p>需要注意当前使用的php版本</p>
 <h3 id="配置xdebug与PhpStorm"><a href="#配置xdebug与PhpStorm" class="headerlink" title="配置xdebug与PhpStorm"></a>配置xdebug与PhpStorm</h3><p>打开对应版本的<code>php.ini</code>加入以下内容(适用于xdebug3+)</p>
