@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.0.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -238,10 +238,10 @@
 <p><img src="https://cdn.gamesme.cn/images/Mac-xiufu-boot-soft.png" alt="修复"></p>
 <p>(我没注意看…仅支持10.12的 Sierra 然而我用的是10.14的 Mojave)</p>
 <p>之后在网上找到了能合并APFS 容器命令的<a href="https://en.ihowto.tips/osx-apps-download-tutorials-tips-hacks-news/merge-apfs-containers-in-single-partition-macos-high-sierra-or-mojave.html" target="_blank" rel="noopener">教程</a></p>
-<h2 id="第一步-删除空的分区且不格式化"><a href="#第一步-删除空的分区且不格式化" class="headerlink" title="第一步 删除空的分区且不格式化"></a>第一步 删除空的分区且不格式化</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> diskutil eraseVolume <span class="token string">"Free Space"</span> %noformat% /dev/disk0s3<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="第一步-删除空的分区且不格式化"><a href="#第一步-删除空的分区且不格式化" class="headerlink" title="第一步 删除空的分区且不格式化"></a>第一步 删除空的分区且不格式化</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo diskutil eraseVolume <span class="string">&quot;Free Space&quot;</span> %noformat% /dev/disk0s3</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://cdn.gamesme.cn/images/Mac-xiufu-boot-2.jpg"></p>
-<h2 id="第二步-调整APFS-容器的大小"><a href="#第二步-调整APFS-容器的大小" class="headerlink" title="第二步 调整APFS 容器的大小"></a>第二步 调整APFS 容器的大小</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">diskutil apfs resizeContainer disk0s2 <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="第二步-调整APFS-容器的大小"><a href="#第二步-调整APFS-容器的大小" class="headerlink" title="第二步 调整APFS 容器的大小"></a>第二步 调整APFS 容器的大小</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diskutil apfs resizeContainer disk0s2 0</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://cdn.gamesme.cn/images/Mac-xiufu-boot-3.jpg"></p>
 <p>但是当我进行第二步的时候，提示无法识别磁盘格式(Unknow Partition Format)</p>
@@ -257,11 +257,7 @@
 <p><img src="https://cdn.gamesme.cn/images/Mac-xiufu-boot-3.jpg"></p>
 <p>(图中红框的那个东西)</p>
 <p>一番百度，最后找到了<a href="https://bbs.feng.com/read-htm-tid-7296511.html" target="_blank" rel="noopener">这个教程</a></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">list disk 
-<span class="token keyword">select</span> disk <span class="token number">0</span> 
-list partition 
-<span class="token keyword">select</span> partition <span class="token number">2</span> 
-<span class="token builtin class-name">set</span> <span class="token assign-left variable">id</span><span class="token operator">=</span>7C3457EF-0000-11AA-AA11-00306543ECAC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list disk </span><br><span class="line"><span class="keyword">select</span> disk 0 </span><br><span class="line">list partition </span><br><span class="line"><span class="keyword">select</span> partition 2 </span><br><span class="line"><span class="built_in">set</span> <span class="built_in">id</span>=7C3457EF-0000-11AA-AA11-00306543ECAC</span><br></pre></td></tr></table></figure>
 
 <p>使用 PE 启动后，打开命令提示符输入以上的命令就解决了(磁盘位置根据实际情况填写)</p>
 <p><img src="https://cdn.gamesme.cn/images/MAc-xiufu-boot-4.jpg"></p>

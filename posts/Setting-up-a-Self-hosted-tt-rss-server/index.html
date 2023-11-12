@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.0.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -238,7 +238,7 @@
 <h2 id="开始部署"><a href="#开始部署" class="headerlink" title="开始部署"></a>开始部署</h2><p>环境要求<br>PHP 5.4 或以上；<br>PostgreSQL（9.1 或以上）或者 MySQL（必须支持InnoDB, TT-RSS不支持MyISAM）；</p>
 <p>官方部署文档<br><a target="_blank" rel="noopener" href="https://git.tt-rss.org/git/tt-rss/wiki/InstallationNotes">https://git.tt-rss.org/git/tt-rss/wiki/InstallationNotes</a></p>
 <p>下载程序并开始安装<br>在想要安装TT-RSS的网站根目录，执行git clone:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://tt-rss.org/git/tt-rss.git <span class="token builtin class-name">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://tt-rss.org/git/tt-rss.git .</span><br></pre></td></tr></table></figure>
 <p>访问TT-RSS安装程序：</p>
 <p><a target="_blank" rel="noopener" href="http://yoursite/tt-rss/install/">http://yoursite/tt-rss/install/</a><br>你会看到如下的安装界面：</p>
 <p>填写完成后就会自动生成config.php的代码，你可以选择由安装程序自动生成config.php文件，或者自己复制后手动生成config.php文件。</p>
@@ -248,24 +248,21 @@
 <p>官方文档：<a target="_blank" rel="noopener" href="https://git.tt-rss.org/git/tt-rss/wiki/UpdatingFeeds">https://git.tt-rss.org/git/tt-rss/wiki/UpdatingFeeds</a></p>
 </blockquote>
 <p>在这里，我采用了第二种方法，即crontab的方式。<br>这里需要注意的是更新脚本文件update.php或update_daemon2.php不能由root用户来执行，可以通过apache或者Nginx的运行用户来执行，如apache或者www等。<br>比如我们为www用户加入crontab</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">crontab</span> <span class="token parameter variable">-u</span> www <span class="token parameter variable">-e</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -u www -e</span><br></pre></td></tr></table></figure>
 <p>添加如下内容：</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">*/30 * * * * /usr/local/php/bin/php /data/wwwroot/安装TT-RSS的目录/update.php --feeds --quiet<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*/30 * * * * /usr/local/php/bin/php /data/wwwroot/安装TT-RSS的目录/update.php --feeds --quiet</span><br></pre></td></tr></table></figure>
 <p>需要注意：<br>上方的&#x2F;usr&#x2F;local&#x2F;php&#x2F;bin&#x2F;php也可能为&#x2F;usr&#x2F;bin&#x2F;php，具体以你实际为准；<br>同时也要注意上文提到的config.php中的路径需与上面统一；</p>
 <blockquote>
 <p>*&#x2F;30 代表每30分钟执行一次更新，你也可以按自己需求设定其他间隔。</p>
 </blockquote>
 <h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><p>以上完成后，我们像正常访问网站一样打开TT-RSS，默认账户密码:</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">username: admin, password: password<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username: admin, password: password</span><br></pre></td></tr></table></figure>
 <p>首次登录后请及时修改密码。同时建议创建新的使用者账户作为日常使用，与管理员账户隔开。</p>
 <h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>Tiny Tiny RSS安装主题非常简单，只需将CSS文件放入themes目录下，并在后台进行选择即可。<br>目前看到仿Feedly和仿Google Reader的这两款主题比较受到大家欢迎:</p>
 <p>tt-rss-feedly-theme<br><a target="_blank" rel="noopener" href="https://github.com/levito/tt-rss-feedly-theme">https://github.com/levito/tt-rss-feedly-theme</a><br>clean-greader<br><a target="_blank" rel="noopener" href="https://github.com/naeramarth7/clean-greader">https://github.com/naeramarth7/clean-greader</a><br>以安装tt-rss-feedly-theme为例，先下载主题：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://github.com/levito/tt-rss-feedly-theme/archive/master.zip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/levito/tt-rss-feedly-theme/archive/master.zip</span><br></pre></td></tr></table></figure>
 <p>解压缩：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">unzip</span> master.zip
-<span class="token comment">#复制主题至themes子目录</span>
-<span class="token function">cp</span> tt-rss-feedly-theme-master/feedly.css /themes
-<span class="token function">cp</span> tt-rss-feedly-theme-master/feedly /themes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">unzip master.zip</span><br><span class="line"><span class="comment">#复制主题至themes子目录</span></span><br><span class="line"><span class="built_in">cp</span> tt-rss-feedly-theme-master/feedly.css /themes</span><br><span class="line"><span class="built_in">cp</span> tt-rss-feedly-theme-master/feedly /themes</span><br></pre></td></tr></table></figure>
 <p>而后我们至后台启用即可。</p>
 <h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><p>以下拓展的解释来自：<a target="_blank" rel="noopener" href="http://ju.outofmemory.cn/entry/39790">http://ju.outofmemory.cn/entry/39790</a></p>
 <blockquote>

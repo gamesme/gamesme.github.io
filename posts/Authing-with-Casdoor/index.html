@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.0.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -237,23 +237,16 @@
 <li>Mysql</li>
 </ul>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>克隆项目</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> path/to/folder
-<span class="token function">git</span> clone https://github.com/casdoor/casdoor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> path/to/folder</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/casdoor/casdoor</span><br></pre></td></tr></table></figure>
 
 <p>修改<a target="_blank" rel="noopener" href="https://github.com/casdoor/casdoor/blob/master/conf/app.conf"><strong>conf&#x2F;app.conf</strong></a>中数据库参数</p>
-<pre class="line-numbers language-ini" data-language="ini"><code class="language-ini"><span class="token key attr-name">driverName</span> <span class="token punctuation">=</span> <span class="token value attr-value">mysql</span>
-<span class="token key attr-name">dataSourceName</span> <span class="token punctuation">=</span> <span class="token value attr-value">root:123456@tcp(localhost:3306)/</span>
-<span class="token key attr-name">dbName</span> <span class="token punctuation">=</span> <span class="token value attr-value">casdoor</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">driverName</span> = mysql</span><br><span class="line"><span class="attr">dataSourceName</span> = root:<span class="number">123456</span>@tcp(localhost:<span class="number">3306</span>)/</span><br><span class="line"><span class="attr">dbName</span> = casdoor</span><br></pre></td></tr></table></figure>
 
 <p>编译前端</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> web
-<span class="token function">yarn</span> <span class="token function">install</span>
-<span class="token function">yarn</span> build<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> web</span><br><span class="line">yarn install</span><br><span class="line">yarn build</span><br></pre></td></tr></table></figure>
 
 <p>编译后端</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#项目根目录下</span>
-go build
-./casdoor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#项目根目录下</span></span><br><span class="line">go build</span><br><span class="line">./casdoor</span><br></pre></td></tr></table></figure>
 
 <p>项目默认监听8000端口，到此可以打开localhost:8000看看效果。</p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>Casdoor的用户(User)属于一个组织(Organization)，只能访问同一个组织(Organization)下的应用(Application)。</p>

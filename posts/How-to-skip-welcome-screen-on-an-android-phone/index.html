@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.0.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -243,9 +243,7 @@
 <p>PS: 由于这种原因的发生是因为系统存在未登出的 Google 账户，不知道什么原理就算把 data 都格式化了也不能跳过……</p>
 <h2 id="方法三：联通全世界的网络"><a href="#方法三：联通全世界的网络" class="headerlink" title="方法三：联通全世界的网络"></a>方法三：联通全世界的网络</h2><p>关于这种方法，就不多说了，差不多就是肉身、路由器、国外运营商 Sim 卡，等等。</p>
 <h2 id="方法四：ADB"><a href="#方法四：ADB" class="headerlink" title="方法四：ADB"></a>方法四：ADB</h2><p>利用 ADB 跳过，需要使用电脑<br>下载好安卓必备adb&#x2F;fastboot套件<br>连接上手机并进入Recovery<br>打开终端&#x2F;命令提示符输入以下命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">adb shell settings put secure user_setup_complete <span class="token number">1</span> 
-adb shell settings put global device_provisioned <span class="token number">1</span>
-adb <span class="token function">reboot</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb shell settings put secure user_setup_complete 1 </span><br><span class="line">adb shell settings put global device_provisioned 1</span><br><span class="line">adb reboot</span><br></pre></td></tr></table></figure>
 
     </div>
 
