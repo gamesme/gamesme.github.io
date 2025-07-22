@@ -476,6 +476,14 @@ pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5p
 .code-container {
   position: relative;
 }
+.code-lang {
+  font-size: 40px;
+  line-height: 1;
+  opacity: 0.1;
+  pointer-events: none;
+  position: absolute;
+  right: 5px;
+}
 .copy-btn {
   color: #333;
   cursor: pointer;
@@ -1232,7 +1240,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #162dff;
+    background: #ffc286;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
