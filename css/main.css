@@ -1452,7 +1452,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #7869ff;
+    background: #b18cf6;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1833,11 +1833,6 @@ pre code {
   color: #fff;
   display: inline-block;
   margin: 0 5px;
-}
-.beian img {
-  display: inline-block;
-  margin: 0 3px;
-  vertical-align: middle;
 }
 @keyframes icon-animate {
   0%, 100% {
