@@ -225,12 +225,12 @@ footer:
 
   # Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, http://www.beian.gov.cn
   beian:
-    enable: true
-    icp: 桂ICP备19003394号
+    enable: false
+    icp: 
     # The digit in the num of gongan beian.
-    gongan_id: 45030402000164
+    gongan_id: 
     # The full num of gongan beian.
-    gongan_num: 桂公网安备45030402000164号
+    gongan_num: 
     # The icon for gongan beian. See: http://www.beian.gov.cn/portal/download
     gongan_icon_url: /images/ba.png
 
@@ -649,7 +649,7 @@ utterances:
 isso: # <data_isso>
 # twikoo
 twikoo:
-  enable: true
+  enable: false
   visitor: false
   envId: gamesme-cn-3goz8ve9b53b5ace # 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
   region: ap-guangzhou # 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
