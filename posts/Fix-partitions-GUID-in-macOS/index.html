@@ -254,7 +254,7 @@
 <p><img src="https://cdn.gamesme.cn/images/Mac-xiufu-boot-soft.png" alt="修复"></p>
 <p>(我没注意看…仅支持10.12的 Sierra 然而我用的是10.14的 Mojave)</p>
 <p>之后在网上找到了能合并APFS 容器命令的<a href="https://en.ihowto.tips/osx-apps-download-tutorials-tips-hacks-news/merge-apfs-containers-in-single-partition-macos-high-sierra-or-mojave.html" target="_blank" rel="noopener">教程</a></p>
-<h2 id="第一步-删除空的分区且不格式化"><a href="#第一步-删除空的分区且不格式化" class="headerlink" title="第一步 删除空的分区且不格式化"></a>第一步 删除空的分区且不格式化</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo diskutil eraseVolume <span class="string">&quot;Free Space&quot;</span> %noformat% /dev/disk0s3</span><br></pre></td></tr></table></figure>
+<h2 id="第一步-删除空的分区且不格式化"><a href="#第一步-删除空的分区且不格式化" class="headerlink" title="第一步 删除空的分区且不格式化"></a>第一步 删除空的分区且不格式化</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> diskutil eraseVolume <span class="string">&quot;Free Space&quot;</span> %noformat% /dev/disk0s3</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://cdn.gamesme.cn/images/Mac-xiufu-boot-2.jpg"></p>
 <h2 id="第二步-调整APFS-容器的大小"><a href="#第二步-调整APFS-容器的大小" class="headerlink" title="第二步 调整APFS 容器的大小"></a>第二步 调整APFS 容器的大小</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diskutil apfs resizeContainer disk0s2 0</span><br></pre></td></tr></table></figure>
