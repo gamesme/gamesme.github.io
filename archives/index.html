@@ -321,7 +321,7 @@
     </span>
     <span class="author" itemprop="copyrightHolder">Gamesme</span>
   </div><div class="powered-by">
-    由 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a target="_blank" rel="noopener" href="https://theme-next.js.org/">Next</a> 驱动 部署于 <a href="https://www.cloudbase.net/" class="exturl" title="Tencent Cloudbase → https://www.cloudbase.net/" target="_blank">Cloudbase</a>
+    由 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a target="_blank" rel="noopener" href="https://theme-next.js.org/">Next</a> 驱动 部署于 <a href="https://pages.github.com/" class="exturl" title="Github Pages → https://pages.github.com/" target="_blank">Github Pages</a>
 </div>
 <div><span id="timeDate"></span><span id="times"></span></div>
 <script>
@@ -349,15 +349,6 @@
     if (d === 'localhost' || d === '127.0.0.1') {
         const b = document.getElementsByClassName('powered-by')[0];
         b.innerHTML = '当前为 <a href="http://localhost:4000/" class="exturl" title="Localhost → http://localhost:4000/" target="_blank">Local Server</a> 开发运行';
-    }
-    else
-        if(d !== 'www.gamesme.cn' && d !== 'gamesme.cn'){
-        (function() {
-            const a = document.getElementsByClassName('beian')[0];
-            a.remove();
-            const b = document.getElementsByClassName('powered-by')[0];
-            b.innerHTML = '由 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a target="_blank" rel="noopener" href="https://theme-next.js.org/">Next</a> 驱动 部署于 <a href="https://pages.github.com/" class="exturl" title="Github Pages → https://pages.github.com/" target="_blank">Github Pages</a>';
-        })();
     }
 </script>
 
